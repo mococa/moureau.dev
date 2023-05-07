@@ -1,0 +1,28 @@
+{
+  "name": "moureau.dev",
+  "version": "0.0.1",
+  "description": "Luiz Felipe's personal website web client",
+  "author": "Luiz Felipe Moureau",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nullstack": "~0.17.0",
+    "prettier": "^2.8.8",
+    "tsconfig-paths-webpack-plugin": "^4.0.1"
+  },
+  "scripts": {
+    "start": "npx nullstack start",
+    "build": "npx nullstack build"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "date-fns": "^2.29.3"
+  }
+}

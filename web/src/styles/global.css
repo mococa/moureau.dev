@@ -1,0 +1,130 @@
+:root {
+  --main-bg: #1b1f24;
+  --accent: #0bb09d;
+  --main-ff: "Spacegrotesk", Arial;
+  --section-title-fs: 2.75rem;
+  --section-subtitle-fs: 1.25rem;
+  --hero-title-fs: 4.85rem;
+  --spacing-lg: 32px;
+  --spacing-md: 16px;
+  --spacing-xl: 48px;
+  --spacing-xl2: 72px;
+  --spacing-xl3: 144px;
+}
+
+* {
+  font-family: var(--main-ff);
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--main-bg);
+
+  color: #c3cad5;
+}
+
+a {
+  color: #fff;
+  width: fit-content;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: #fff;
+}
+
+.column {
+  display: flex;
+  flex-flow: column;
+}
+
+.row {
+  display: flex;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.gap-lg {
+  gap: 24px;
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
+
+.mt-xl2 {
+  margin-top: var(--spacing-xl2);
+}
+
+.mt-xl3 {
+  margin-top: var(--spacing-xl3);
+}
+
+h2 > b {
+  color: var(--accent);
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #c3cad5;
+}
+
+@media (min-width: 500px) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    margin: 8px;
+    border-radius: 10px;
+    background-color: #333333;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    margin-right: 4px;
+
+    background-color: #c3cad5;
+
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a6acb4;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    --hero-title-fs: 2.65rem;
+    --section-title-fs: 2.5rem;
+  }
+}

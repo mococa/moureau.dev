@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "_*": ["./src/*"]
+    },
+    "strict": false,
+    "noImplicitAny": false,
+    "jsx": "preserve"
+  }
+}
