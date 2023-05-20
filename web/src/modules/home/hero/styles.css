@@ -1,0 +1,152 @@
+section#hero {
+  overflow: hidden;
+
+  padding-top: 64px;
+  padding-bottom: 112px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero .column {
+  max-width: min-content;
+  margin-bottom: 108px;
+}
+
+.hero h1 {
+  width: 12ch;
+
+  position: relative;
+
+  font-size: var(--hero-title-fs);
+}
+
+.hero h1::after {
+  content: '';
+
+  position: absolute;
+  top: -24px;
+  left: 0;
+
+  width: 150px;
+  height: 6px;
+
+  background-color: white;
+}
+
+.hero .column > span {
+  font-size: 1.2rem;
+}
+
+.hero > img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 0 33%;
+
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: bottom;
+}
+
+@media (max-width: 1366px) {
+  section#hero {
+    padding-top: 12px;
+  }
+
+  .content.hero > img {
+    padding: 0 27%;
+  }
+
+  .hero .column {
+    margin-bottom: 170px;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 860px) {
+  .content.hero h1 {
+    width: 8ch;
+  }
+
+  .content.hero > img {
+    padding-right: 26%;
+    padding-left: 20%;
+  }
+}
+
+@media (max-width: 500px) {
+  section#hero {
+    padding-top: 32px;
+  }
+
+  .content.hero {
+    flex-flow: column;
+    align-items: baseline;
+  }
+
+  .content.hero h1::after {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    width: 112px;
+    height: 4px;
+    background-color: white;
+  }
+
+  .content.hero > img {
+    -webkit-mask-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 0))
+    );
+
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+    position: absolute;
+    top: 207px;
+
+    padding: 0;
+
+    z-index: -1;
+
+    width: 100%;
+    height: unset;
+
+    object-position: unset;
+  }
+
+  .hero .column {
+    margin-bottom: 486px;
+  }
+
+  .hero-sub-section {
+    display: flex;
+    flex-flow: column;
+    width: 270px;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #5d6c83;
+    width: 100%;
+  }
+
+  .hero-scroll-down {
+    bottom: auto;
+    top: 70vh;
+  }
+
+  .scroll-down-container {
+    animation-iteration-count: infinite;
+  }
+}

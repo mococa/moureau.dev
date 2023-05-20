@@ -1,0 +1,14 @@
+.hero-social {
+  display: flex;
+  flex-flow: column;
+
+  width: 265px;
+}
+
+.hero-social b {
+  color: white;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
