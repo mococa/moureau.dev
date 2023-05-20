@@ -1,0 +1,106 @@
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  border: none;
+  border-radius: 2px;
+
+  background-color: var(--main-bg);
+
+  transition: 0.3s;
+
+  padding: 8px;
+
+  cursor: pointer;
+}
+
+.language-button:hover,
+.language-menu a:hover {
+  filter: brightness(1.18);
+}
+
+.language-button svg {
+  width: 16px;
+
+  fill: white;
+
+  margin-right: 4px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.language-menu {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1;
+
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--main-bg);
+
+  animation: fade-in forwards 200ms;
+
+  padding-bottom: 32px;
+}
+
+.language-menu-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 32px;
+}
+.language-menu-list li {
+  padding-left: 12px;
+}
+
+.language-menu-list li[aria-selected='true'] a {
+  border-bottom: 4px solid white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.language-menu a {
+  display: block;
+
+  background-color: var(--main-bg);
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  padding: 10px 12px;
+}
+
+.language-menu small {
+  position: absolute;
+  bottom: 64px;
+}
+
+@media (max-width: 500px) {
+  .language-menu a img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .language-menu small {
+    display: none;
+  }
+}
