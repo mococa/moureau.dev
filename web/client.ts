@@ -1,6 +1,7 @@
 import Nullstack, { NullstackClientContext } from 'nullstack';
 
 import Application from './src/Application';
+import { plugins } from 'plugins';
 
 const context = Nullstack.start(Application) as NullstackClientContext;
 
@@ -9,3 +10,5 @@ context.start = async function start() {
 };
 
 export default context;
+
+plugins.forEach(Nullstack.use);
