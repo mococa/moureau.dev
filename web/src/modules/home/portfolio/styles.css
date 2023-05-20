@@ -1,0 +1,11 @@
+.portfolio h2 {
+  max-width: 22ch;
+
+  margin-bottom: 12px;
+}
+
+@media (max-width: 820px) {
+  .portfolio > .row {
+    flex-wrap: wrap;
+  }
+}
