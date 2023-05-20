@@ -1,0 +1,49 @@
+.section-title {
+  display: flex;
+  gap: 4px;
+
+  margin-bottom: 8px;
+
+  font-size: 0.875rem;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  position: relative;
+}
+
+.section-title b {
+  color: #ddd;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  transition: 100ms;
+}
+
+.section-title span {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title::after {
+  content: '🔗';
+
+  position: absolute;
+  right: -24px;
+  top: 1.2px;
+
+  transition: 100ms;
+
+  opacity: 0;
+}
+
+.section-title:hover b {
+  color: white;
+}
+
+.section-title:hover::after {
+  opacity: 1;
+}
