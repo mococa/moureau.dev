@@ -20,4 +20,4 @@ function custom_server(...args) {
   return config;
 }
 
-module.exports = [custom_client, custom_server];
+module.exports = [custom_server, custom_client];
