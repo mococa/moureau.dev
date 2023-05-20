@@ -1,0 +1,39 @@
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about > .column {
+  max-width: 600px;
+}
+
+.about > .column:nth-of-type(2) {
+  max-width: 380px;
+}
+
+.about > .column > span {
+  font-size: 1.125rem;
+
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+#about-me img {
+  transition: 0.2s;
+}
+
+#about-me img:hover {
+  filter: brightness(1.5);
+}
+
+@media (max-width: 500px) {
+  #about-me {
+    padding-top: 64px;
+  }
+
+  .about {
+    flex-flow: column;
+    gap: 40px;
+  }
+}
