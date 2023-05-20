@@ -1,0 +1,33 @@
+.social-links-row {
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+}
+
+.social-links-row a {
+  height: 32px;
+}
+
+.social-links-row a:not(:first-of-type) {
+  margin-left: 24px;
+}
+
+.social-links-row a svg {
+  width: 32px;
+  height: 100%;
+
+  transition: 250ms ease-in-out;
+
+  opacity: 100%;
+
+  color: currentColor;
+}
+
+.social-links-row a svg:hover {
+  margin-top: -4px;
+}
+
+.social-links-row.hovered a svg:not(:hover) {
+  opacity: 50%;
+}
