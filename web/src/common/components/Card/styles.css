@@ -1,0 +1,61 @@
+.card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+
+  flex: 1;
+
+  height: 400px;
+  width: 100%;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  background-color: rgba(50, 50, 70, 0.5);
+
+  overflow: hidden;
+}
+
+.card .column {
+  padding: 48px 24px 40px;
+
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card .column span {
+  transition: 300ms;
+
+  color: #cccccc;
+}
+
+.card .background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 200px;
+
+  background-color: rgba(45, 52, 63, 1);
+}
+
+.card .background img {
+  width: 40%;
+  max-height: 65%;
+
+  transition: 150ms ease-in;
+
+  object-fit: contain;
+}
+
+.card:hover .link::after {
+  width: 100%;
+}
+
+.card:hover .column span {
+  color: white;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
