@@ -1,8 +1,16 @@
 /* ---------- External ---------- */
-import Nullstack, { NullstackClientContext, NullstackNode } from 'nullstack';
+import Nullstack, {
+  NullstackClientContext,
+  NullstackNode,
+  NullstackServerContext,
+} from 'nullstack';
+import cookie from 'cookie';
 
 /* ---------- Modules ---------- */
 import { Home } from '_modules/home';
+
+/* ---------- Translations ---------- */
+import { get_language_from_locale } from '_utils/translations';
 
 /* ---------- Styles ---------- */
 import '/public/fonts/styles.css';
@@ -11,6 +19,9 @@ import '_styles/global.css';
 declare function Head(): NullstackNode;
 
 class Application extends Nullstack {
+  /* ---------- Proxies ---------- */
+  locale = 'en-US';
+
   /* ---------- Renderers ---------- */
   renderHead({ page }: NullstackClientContext) {
     return (
@@ -36,17 +47,48 @@ class Application extends Nullstack {
     );
   }
 
+  /* ---------- Server functions ---------- */
+  static async getLocale(context: NullstackServerContext) {
+    const cookies = context.request.headers.cookie;
+    const { locale } = cookie.parse(cookies || '');
+
+    return { locale };
+  }
+
+  /* ---------- Handlers ---------- */
+  handleChangeLocale({ locale }: { locale: string }) {
+    this.locale = locale;
+
+    document.documentElement.lang = locale;
+  }
+
   /* ---------- Life cycle ---------- */
+  async prepare() {
+    const { locale } = await Application.getLocale(
+      {} as NullstackServerContext,
+    );
+
+    this.locale = locale || 'en-US';
+  }
+
   async initiate({ page }: NullstackClientContext) {
-    page.locale = 'en-US';
+    page.locale = this.locale || 'en-US';
     page.title = 'Moureau - Fullstack Developer';
     page.description =
       "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
     page.image = '/image-banner.png';
   }
 
+  hydrate(ctx) {
+    ctx.handleChangeLocale = this.handleChangeLocale;
+
+    document.documentElement.lang = this.locale;
+  }
+
   /* ---------- Render ---------- */
   render() {
+    const language = get_language_from_locale(this.locale);
+
     return (
       <body>
         <Head />
@@ -56,7 +98,7 @@ class Application extends Nullstack {
           😏
         </hello>
 
-        <Home route="/" />
+        <Home route="/" language={language} />
       </body>
     );
   }

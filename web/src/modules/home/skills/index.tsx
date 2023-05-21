@@ -2,7 +2,10 @@
 import { SectionTitle } from '_common/components/SectionTitle';
 
 /* ---------- Types ---------- */
-import { Models } from '_@types';
+import { Language, Models } from '_@types';
+
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
 
 /* ---------- Styles ---------- */
 import './styles.css';
@@ -10,37 +13,40 @@ import './styles.css';
 /* ---------- Interfaces ---------- */
 interface Props {
   skills: Models.Skill[];
+  language: Language;
 }
 
-export const SkillSection = ({ skills }: Props) => (
-  <section id="skills">
-    <div class="content skills">
-      <SectionTitle title="My skills" href="#skills" />
+export const SkillSection = ({ skills, language }: Props) => {
+  const { name, title, subtitle } = translations.skills;
 
-      <h2>
-        My vast <b>skill list</b>
-      </h2>
+  return (
+    <section id="skills">
+      <div class="content skills">
+        <SectionTitle title={name[language]} href="#skills" />
 
-      <span>
-        Skills, toolbox and the technologies I like to work with and use to
-        bring life to projects that I work on
-      </span>
+        <h2>
+          {title[language][0]}
+          <b>{title[language][1]}</b>
+        </h2>
 
-      <div class="skills-container">
-        {skills.map(({ name, src, href, padding }) => (
-          <a class="skill-card" href={href} target="_blank">
-            <img
-              src={`/img/languages/${src}`}
-              alt={name}
-              style={`padding: ${padding || 0}px`}
-            />
+        <span>{subtitle[language]}</span>
 
-            <h3>{name}</h3>
+        <div class="skills-container">
+          {skills.map(({ name, src, href, padding }) => (
+            <a class="skill-card" href={href} target="_blank">
+              <img
+                src={`/img/languages/${src}`}
+                alt={name}
+                style={`padding: ${padding || 0}px`}
+              />
 
-            <div class="background" />
-          </a>
-        ))}
+              <h3>{name}</h3>
+
+              <div class="background" />
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

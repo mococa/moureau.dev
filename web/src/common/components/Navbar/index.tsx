@@ -1,19 +1,28 @@
 /* ---------- External ---------- */
 import Nullstack, { NullstackClientContext } from 'nullstack';
 
+/* ---------- Types---------- */
+import { Language } from '_@types';
+
 /* ---------- Assets ---------- */
 import { Logo } from '_common/assets/SVG/Logo';
 
 /* ---------- Components ---------- */
 import { LanguageSelector } from '_common/components/LanguageSelector';
 
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
+
 /* ---------- Styles ---------- */
 import './styles.css';
 
+/* ---------- Interfaces ---------- */
+interface Props {
+  language: Language;
+}
 export class Navbar extends Nullstack {
   /* ---------- Proxies ---------- */
   nav_links: HTMLElement = null;
-  language = null;
 
   /* ---------- Handlers ---------- */
   handleMouseOver() {
@@ -26,10 +35,6 @@ export class Navbar extends Nullstack {
   }
 
   /* ---------- Life cycle ---------- */
-  prepare({ page }: NullstackClientContext) {
-    this.language = page?.locale?.split('-')[0] || 'en';
-  }
-
   hydrate() {
     this.nav_links.addEventListener('mouseover', this.handleMouseOver);
     this.nav_links.addEventListener('mouseout', this.handleMouseOut);
@@ -41,7 +46,9 @@ export class Navbar extends Nullstack {
   }
 
   /* ---------- Render ---------- */
-  render() {
+  render({ language }: NullstackClientContext<Props>) {
+    const { links } = translations.navbar;
+
     return (
       <nav class="navbar-wrapper">
         <div class="navbar-content">
@@ -53,11 +60,11 @@ export class Navbar extends Nullstack {
 
           <ul class="navbar-links" ref={this.nav_links}>
             <li>
-              <a href="/">Home</a>
+              <a href="/">{links.home[language]}</a>
             </li>
 
             <li>
-              <a href="/">About</a>
+              <a href="/">{links.about[language]}</a>
             </li>
 
             <li>
@@ -65,7 +72,7 @@ export class Navbar extends Nullstack {
             </li>
 
             <li>
-              <LanguageSelector language={this.language || 'en'} />
+              <LanguageSelector language={language || 'en'} />
             </li>
           </ul>
         </div>

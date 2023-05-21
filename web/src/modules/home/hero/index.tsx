@@ -1,10 +1,16 @@
 /* ---------- External ---------- */
 import { differenceInCalendarYears } from 'date-fns';
 
+/* ---------- Types ---------- */
+import { Language } from '_@types';
+
 /* ---------- Module Components ---------- */
 import { HeroScrollDown } from '_modules/home/hero/components/HeroScrollDown';
 import { HeroSocial } from '_modules/home/hero/components/HeroSocial';
 import { HeroSubSection } from '_modules/home/hero/components/HeroSubSection';
+
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
 
 /* ---------- Styles ---------- */
 import './styles.css';
@@ -12,20 +18,24 @@ import './styles.css';
 /* ---------- Constants ---------- */
 const age = differenceInCalendarYears(new Date(), new Date('2001-02-12'));
 
-export const HeroSection = () => {
+/* ---------- Interfaces ---------- */
+interface Props {
+  language: Language;
+}
+
+export const HeroSection = ({ language }: Props) => {
+  const { title, subtitle, learner, sections } = translations.hero;
+
   return (
     <section id="hero">
       <div class="content hero">
         <div class="column">
-          <h1>
-            I'm Luiz, a <></>
-            Web Developer
-          </h1>
+          <h1>{title[language]}</h1>
 
           <span>
-            Developer, Rubik's cube enthusiast and music lover.
+            {subtitle[language]}
             <br />
-            Always a learner.
+            {learner[language]}
           </span>
 
           <HeroScrollDown />
@@ -35,18 +45,21 @@ export const HeroSection = () => {
 
         <div class="hero-main-sections">
           <HeroSubSection
-            title="About me"
-            content={`A ${age} years old brazilian developer passionate about technology, design, puzzles and languages. Very into music and international experiences in general`}
-            link={{ title: 'More', href: '#about-me' }}
+            title={sections.about.title[language]}
+            content={sections.about.text[language].replace(
+              '%AGE%',
+              String(age),
+            )}
+            link={{ title: sections.about.button[language], href: '#about-me' }}
           />
 
           <HeroSubSection
-            title="My work"
-            content="I like to get stuff done and done right, paying attention to details, accessibility and always looking for new challenges and learning new tech"
-            link={{ title: 'Browse portifolio', href: '#portfolio' }}
+            title={sections.work.title[language]}
+            content={sections.work.text[language]}
+            link={{ title: sections.work.button[language], href: '#portfolio' }}
           />
 
-          <HeroSocial title="Follow me" />
+          <HeroSocial title={sections.follow_me[language]} />
         </div>
       </div>
     </section>

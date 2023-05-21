@@ -1,15 +1,26 @@
 /* ---------- External ---------- */
 import Nullstack from 'nullstack';
 
+/* ---------- Types ---------- */
+import { Language } from '_@types';
+
 /* ---------- Common Components ---------- */
 import { SectionTitle } from '_common/components/SectionTitle';
 import { Card } from '_common/components/Card';
 import { Link } from '_common/components/Link';
 
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
+
 /* ---------- Styles ---------- */
 import './styles.css';
 
-export class LibrariesSection extends Nullstack {
+/* ---------- Interfaces ---------- */
+interface Props {
+  language: Language;
+}
+
+export class LibrariesSection extends Nullstack<Props> {
   /* ---------- Proxies ---------- */
   expanded = false;
 
@@ -18,15 +29,21 @@ export class LibrariesSection extends Nullstack {
     this.expanded = !this.expanded;
   }
 
-  render() {
+  render({ language }: Props) {
+    const { name, title, see_all, see_more } = translations.libraries;
+
     return (
       <section id="libraries">
         <div class="column content">
-          <SectionTitle title="Widgets & Libraries" href="#libraries" />
+          <SectionTitle title={name[language]} href="#libraries" />
 
           <div class="libraries column">
             <h2>
-              Explore my latest <b>widgets and libraries</b> on Github
+              {title[language][0]}
+
+              <b>{title[language][1]}</b>
+
+              {title[language][2]}
             </h2>
 
             <div class="row">
@@ -35,7 +52,7 @@ export class LibrariesSection extends Nullstack {
                 target="_blank"
                 size="small"
               >
-                See all
+                {see_all[language]}
               </Link>
             </div>
 
@@ -51,7 +68,7 @@ export class LibrariesSection extends Nullstack {
 
             <div class="row end-aligned">
               <button class="expand-button" onclick={this.handleToggleExpanded}>
-                {this.expanded ? 'Show less' : 'See more'}
+                {this.expanded ? 'Show less' : see_more[language]}
               </button>
             </div>
           </div>
