@@ -6,3 +6,5 @@ export namespace Models {
     padding?: number;
   }
 }
+
+export type Language = 'en' | 'pt' | 'fr' | 'es';
