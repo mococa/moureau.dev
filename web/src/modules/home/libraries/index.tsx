@@ -29,8 +29,9 @@ export class LibrariesSection extends Nullstack<Props> {
     this.expanded = !this.expanded;
   }
 
+  /* ---------- Render ---------- */
   render({ language }: Props) {
-    const { name, title, see_all, see_more } = translations.libraries;
+    const { name, title, see_all, see_more, see_less } = translations.libraries;
 
     return (
       <section id="libraries">
@@ -68,7 +69,7 @@ export class LibrariesSection extends Nullstack<Props> {
 
             <div class="row end-aligned">
               <button class="expand-button" onclick={this.handleToggleExpanded}>
-                {this.expanded ? 'Show less' : see_more[language]}
+                {this.expanded ? see_less[language] : see_more[language]}
               </button>
             </div>
           </div>
