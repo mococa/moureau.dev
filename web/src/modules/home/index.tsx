@@ -1,8 +1,5 @@
-import Nullstack, {
-  NullstackClientContext,
-  NullstackPage,
-  NullstackServerContext,
-} from 'nullstack';
+/* ---------- External ---------- */
+import Nullstack, { NullstackClientContext } from 'nullstack';
 
 /* ---------- Common Components ---------- */
 import { Navbar } from '_common/components/Navbar';
@@ -23,6 +20,7 @@ import { Language } from '_@types';
 /* ---------- Styles ---------- */
 import './styles.css';
 
+/* ---------- Interfaces ---------- */
 interface Props {
   language: Language;
 }

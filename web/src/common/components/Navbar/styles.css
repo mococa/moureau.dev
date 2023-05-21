@@ -41,7 +41,7 @@
   list-style-type: none;
 }
 
-.navbar-links li {
+.navbar-links > li {
   padding-left: 32px;
 
   font-size: 1.25rem;
