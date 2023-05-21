@@ -1,0 +1,25 @@
+.hero-sub-section {
+  display: flex;
+  flex-flow: column;
+
+  width: 270px;
+
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+
+  border-bottom: 1px solid #5d6c83;
+}
+
+.hero-sub-section b {
+  color: white;
+  font-size: 1.125rem;
+
+  margin-bottom: 4px;
+}
+
+.hero-sub-section > span {
+  margin-bottom: 16px;
+  
+  font-size: 1.125rem;
+  letter-spacing: .5px;
+}

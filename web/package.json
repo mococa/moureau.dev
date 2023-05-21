@@ -6,6 +6,7 @@
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
@@ -13,16 +14,18 @@
     "eslint-plugin-prettier": "^4.2.1",
     "nullstack": "~0.17.0",
     "prettier": "^2.8.8",
-    "tsconfig-paths-webpack-plugin": "^4.0.1"
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
+    "eslint": "^8.40.0",
+    "typescript": "^5.0.4"
   },
   "scripts": {
-    "start": "npx nullstack start",
-    "build": "npx nullstack build"
+    "start": "node .production/server.js",
+    "dev": "npx nullstack start",
+    "build": "npx nullstack build",
+    "preserve": "npm run build",
+    "serve": "npm run start"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^6.4.0",
-    "@fortawesome/free-regular-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "date-fns": "^2.29.3"
   }
 }

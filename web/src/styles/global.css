@@ -1,7 +1,7 @@
 :root {
   --main-bg: #1b1f24;
   --accent: #0bb09d;
-  --main-ff: "Spacegrotesk", Arial;
+  --main-ff: 'Spacegrotesk', Arial;
   --section-title-fs: 2.75rem;
   --section-subtitle-fs: 1.25rem;
   --hero-title-fs: 4.85rem;
@@ -19,6 +19,10 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
+}
+
+hello {
+  display: none;
 }
 
 html {
@@ -55,6 +59,18 @@ h6 {
 
 .row {
   display: flex;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.row.end-aligned {
+  align-self: flex-end;
 }
 
 .uppercase {
@@ -119,6 +135,12 @@ hr {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background-color: #a6acb4;
+  }
+}
+
+@media (max-width: 1366px) {
+  :root {
+    --hero-title-fs: 4.5rem;
   }
 }
 
