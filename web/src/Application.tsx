@@ -21,8 +21,10 @@ class Application extends Nullstack {
         />
 
         <meta name="theme-color" content="#1b1f24" />
-        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@luizmoureau" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@luizmoureau" />
+        <meta name="twitter:image" content="/image-banner.png" />
         <meta name="twitter:title" content={page.title} />
         <meta name="twitter:description" content={page.description} />
         <link href="https://fonts.gstatic.com" rel="preconnect" />
@@ -40,6 +42,7 @@ class Application extends Nullstack {
     page.title = 'Moureau - Fullstack Developer';
     page.description =
       "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
+    page.image = '/image-banner.png';
   }
 
   /* ---------- Render ---------- */
