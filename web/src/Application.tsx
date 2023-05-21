@@ -1,25 +1,20 @@
 /* ---------- External ---------- */
 import Nullstack, {
   NullstackClientContext,
-  NullstackEnvironment,
   NullstackNode,
-  NullstackPage,
-  NullstackParams,
-  NullstackProject,
-  NullstackRouter,
   NullstackServerContext,
-  NullstackSettings,
-  NullstackWorker,
 } from 'nullstack';
 import cookie from 'cookie';
 
 /* ---------- Modules ---------- */
 import { Home } from '_modules/home';
 
+/* ---------- Translations ---------- */
+import { get_language_from_locale } from '_utils/translations';
+
 /* ---------- Styles ---------- */
 import '/public/fonts/styles.css';
 import '_styles/global.css';
-import { get_language_from_locale } from '_utils/translations';
 
 declare function Head(): NullstackNode;
 
@@ -84,14 +79,15 @@ class Application extends Nullstack {
     page.image = '/image-banner.png';
   }
 
-  hydrate() {
+  hydrate(ctx) {
+    ctx.handleChangeLocale = this.handleChangeLocale;
+
     document.documentElement.lang = this.locale;
   }
 
   /* ---------- Render ---------- */
-  render(ctx) {
+  render() {
     const language = get_language_from_locale(this.locale);
-    ctx.handleChangeLocale = this.handleChangeLocale;
 
     return (
       <body>
