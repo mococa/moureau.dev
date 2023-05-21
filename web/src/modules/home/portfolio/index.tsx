@@ -2,19 +2,34 @@
 import { SectionTitle } from '_common/components/SectionTitle';
 import { Card } from '_common/components/Card';
 
+/* ---------- Types ---------- */
+import { Language } from '_@types';
+
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
+
 /* ---------- Styles ---------- */
 import './styles.css';
 
-export const PortfolioSection = () => {
+/* ---------- Interfaces ---------- */
+interface Props {
+  language: Language;
+}
+
+export const PortfolioSection = ({ language }: Props) => {
+  const { name, title } = translations.portfolio;
+
   return (
     <section id="portfolio">
       <div class="portfolio column content">
-        <SectionTitle title="Portfolio" href="#portfolio" />
+        <SectionTitle title={name[language]} href="#portfolio" />
 
         <div class="row gap-lg">
           <div class="column full-width gap-lg">
             <h2>
-              Quick tour through some cool <b>projects that I've made</b>
+              {title[language][0]}
+
+              <b>{title[language][1]}</b>
             </h2>
 
             {portfolio_projects

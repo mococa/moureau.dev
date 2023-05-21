@@ -16,6 +16,10 @@ section#hero {
   margin-bottom: 108px;
 }
 
+.hero .column span {
+  max-width: 39ch;
+}
+
 .hero h1 {
   width: 12ch;
 

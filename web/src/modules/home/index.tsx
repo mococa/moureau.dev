@@ -17,24 +17,31 @@ import { LibrariesSection } from '_modules/home/libraries';
 /* ---------- Constants ---------- */
 import { skills } from '_utils/constants/skills';
 
+/* ---------- Types ---------- */
+import { Language } from '_@types';
+
 /* ---------- Styles ---------- */
 import './styles.css';
 
-export class Home extends Nullstack {
-  render() {
+interface Props {
+  language: Language;
+}
+
+export class Home extends Nullstack<Props> {
+  render({ language }: NullstackClientContext<Props>) {
     return (
       <main>
-        <Navbar />
+        <Navbar language={language} />
 
-        <HeroSection />
+        <HeroSection language={language} />
 
-        <AboutMeSection apps_in_prod={5} github_repositories={42} />
+        <AboutMeSection apps={5} repos={42} language={language} />
 
-        <SkillSection skills={skills} />
+        <SkillSection skills={skills} language={language} />
 
-        <PortfolioSection />
+        <PortfolioSection language={language} />
 
-        <LibrariesSection />
+        <LibrariesSection language={language} />
       </main>
     );
   }
