@@ -1,11 +1,20 @@
+/* ---------- External ---------- */
 import Nullstack, { NullstackClientContext } from 'nullstack';
+
+/* ---------- Types ---------- */
 import { Language } from '_@types';
+
+/* ---------- Common Components ---------- */
 import { Navbar } from '_common/components/Navbar';
 import { Link } from '_common/components/Link';
 
-import './styles.css';
+/* ---------- Translations ---------- */
 import { translations } from '_utils/translations';
 
+/* ---------- Styles ---------- */
+import './styles.css';
+
+/* ---------- Interfaces ---------- */
 interface Props {
   language: Language;
 }

@@ -1,4 +1,4 @@
-import { NullstackNode, NullstackPlugin, NullstackPluginNode } from 'nullstack';
+import { NullstackPlugin, NullstackPluginNode } from 'nullstack';
 
 const fix_boolean = ({ attributes, children }: NullstackPluginNode) => {
   for (const attribute in attributes) {
@@ -36,6 +36,8 @@ const not_found_page_plugin: NullstackPlugin = {
         };
       };
     };
+
+    if (!instances.application) return;
 
     const { _scope: scope } = instances.application as Application;
 

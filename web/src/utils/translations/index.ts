@@ -1,7 +1,9 @@
-export const get_language_from_locale = (locale?: string) => {
-  const language = (locale?.split('-')[0] || 'en') as 'en' | 'fr' | 'pt' | 'es';
+import { Language } from '_@types';
 
-  return language;
+export const get_language_from_locale = (locale?: string): Language => {
+  const language = locale?.split('-')[0] || 'en';
+
+  return language as Language;
 };
 
 export const translations = {

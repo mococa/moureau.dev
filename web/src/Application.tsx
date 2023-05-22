@@ -8,6 +8,7 @@ import cookie from 'cookie';
 
 /* ---------- Modules ---------- */
 import { Home } from '_modules/home';
+import { NotFound } from '_modules/404';
 
 /* ---------- Translations ---------- */
 import { get_language_from_locale } from '_utils/translations';
@@ -63,16 +64,14 @@ class Application extends Nullstack {
   }
 
   /* ---------- Life cycle ---------- */
-  async prepare() {
+  async initiate({ page }: NullstackClientContext) {
     const { locale } = await Application.getLocale(
       {} as NullstackServerContext,
     );
 
     this.locale = locale || 'en-US';
-  }
 
-  async initiate({ page }: NullstackClientContext) {
-    page.locale = this.locale || 'en-US';
+    page.locale = this.locale;
     page.title = 'Moureau - Fullstack Developer';
     page.description =
       "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
@@ -86,8 +85,8 @@ class Application extends Nullstack {
   }
 
   /* ---------- Render ---------- */
-  render() {
-    const language = get_language_from_locale(this.locale);
+  render({ page }: NullstackClientContext) {
+    const language = get_language_from_locale(page.locale || this.locale);
 
     return (
       <body>
@@ -97,6 +96,8 @@ class Application extends Nullstack {
           Greetings, inspector! If you wanna see more, check my Github: mococa
           😏
         </hello>
+
+        {page.status !== 200 && <NotFound language={language} route="*" />}
 
         <Home route="/" language={language} />
       </body>
