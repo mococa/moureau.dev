@@ -205,4 +205,26 @@ export const translations = {
       es: 'Ver menos',
     },
   },
+  not_found: {
+    title: {
+      en: 'Page not found',
+      pt: 'Página não encontrada',
+      fr: 'Page non trouvée',
+      es: 'Página no encontrada',
+    },
+
+    subtitle: {
+      en: "It seems the page you're looking for no longer exists on this website.",
+      pt: 'Parece que a página que vocé está procurando não existe mais neste site.',
+      fr: "Il semble que la page que vous recherchez n'existe plus sur ce site.",
+      es: 'Parece que la página que estás buscando no longer existe en este sitio.',
+    },
+
+    button: {
+      en: 'Back to homepage',
+      pt: 'Voltar para a página inicial',
+      fr: "Retour à la page d'accueil",
+      es: 'Volver a la página principal',
+    },
+  },
 } as const;
