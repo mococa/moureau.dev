@@ -27,4 +27,37 @@ const fix_boolean_plugin: NullstackPlugin = {
   server: true,
 };
 
-export const plugins = [fix_boolean_plugin];
+const not_found_page_plugin: NullstackPlugin = {
+  transform({ instances, router: { url }, page }) {
+    type Application = {
+      _scope?: {
+        virtualDom?: {
+          type: string | boolean;
+        };
+      };
+    };
+
+    if (!instances.application) return;
+
+    const { _scope: scope } = instances.application as Application;
+
+    if (!scope && !scope?.virtualDom) return;
+
+    if (scope.virtualDom?.type !== 'div') return;
+
+    const route_page = Object.values(instances).find(
+      ({ _attributes: attrs }) => {
+        return attrs.route === url;
+      },
+    );
+
+    if (!route_page && page.status !== 404 && url !== '/') {
+      page.status = 404;
+    }
+  },
+  load() {},
+  client: true,
+  server: true,
+};
+
+export const plugins = [fix_boolean_plugin, not_found_page_plugin];

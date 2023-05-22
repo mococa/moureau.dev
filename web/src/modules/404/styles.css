@@ -1,0 +1,51 @@
+.not-found-404 {
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  text-align: center;
+
+  margin: auto;
+
+  opacity: 0.075;
+
+  font-size: 24rem;
+
+  z-index: 0;
+}
+
+.not-found-content {
+  text-align: center;
+
+  justify-content: center;
+
+  height: 68vh;
+  max-height: 650px;
+}
+
+.not-found-content h2 {
+  font-size: 4rem;
+}
+
+.not-found-content span {
+  font-size: 1.25rem;
+}
+
+.not-found-content a {
+  align-self: center;
+  margin-top: 24px;
+}
+
+@media (max-width: 500px) {
+  .not-found-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .not-found-content span {
+    font-size: 1rem;
+  }
+
+  .not-found-404 {
+    font-size: 9rem;
+  }
+}

@@ -26,6 +26,12 @@ interface Props {
 }
 
 export class Home extends Nullstack<Props> {
+  initiate({ page }: NullstackClientContext<Props>) {
+    page.title = 'Moureau - Fullstack Developer';
+    page.description =
+      "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
+  }
+
   render({ language }: NullstackClientContext<Props>) {
     return (
       <main>
