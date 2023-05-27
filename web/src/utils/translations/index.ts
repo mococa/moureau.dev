@@ -79,7 +79,7 @@ export const translations = {
         button: {
           en: 'Browse portfolio',
           pt: 'Meu portfólio',
-          fr: 'Parcourir le portefeuille',
+          fr: 'Parcourir le portfolio',
           es: 'Navegar por el portafolio',
         },
       },
@@ -101,7 +101,7 @@ export const translations = {
     title: {
       en: ["I've been professionally developing for ", 'over %YEARS% years'],
       pt: ['Desenvolvo profissionalmente há ', 'mais de %YEARS% anos'],
-      fr: ['Je développe comme profession depuis ', 'plus de %YEARS% ans'],
+      fr: ['Je développe avec professionnalisme depuis ', 'plus de %YEARS% ans'],
       es: ['He desarrollado profesionalmente por ', 'más de %YEARS% años'],
     },
     subtitle: {
@@ -151,7 +151,7 @@ export const translations = {
     title: {
       en: ['My vast ', 'skill list'],
       pt: ['Minha vasta ', 'lista de habilidades'],
-      fr: ['Ma longe ', 'liste de compétences'],
+      fr: ['Ma longue ', 'liste de compétences'],
       es: ['Mi grande ', 'lista de habilidades'],
     },
     subtitle: {
@@ -165,12 +165,12 @@ export const translations = {
     name: {
       en: 'Portfolio',
       pt: 'Portfólio',
-      fr: 'Portefeuille',
+      fr: 'Portfolio',
       es: 'Portafolio',
     },
     title: {
       en: ['Quick tour through some cool ', "projects that I've made"],
-      pt: ['Pequeno tour por alguns ', 'projetos que eu fiz'],
+      pt: ['Pequeno tour por alguns ', 'projetos que já fiz'],
       fr: ['Petit tour sur quelques ', "projets que j'ai fait"],
       es: ['Pequeño tour por algunos ', 'proyectos que he hecho'],
     },
@@ -179,7 +179,7 @@ export const translations = {
     name: {
       en: 'Widgets & Libraries',
       pt: 'Widgets & Bibliotecas',
-      fr: 'Widgets & Bibliothéques',
+      fr: 'Widgets & Bibliothèques',
       es: 'Widgets & Bibliotecas',
     },
     title: {
