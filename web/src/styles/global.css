@@ -5,8 +5,9 @@
   --section-title-fs: 2.75rem;
   --section-subtitle-fs: 1.25rem;
   --hero-title-fs: 4.85rem;
-  --spacing-lg: 32px;
+  --spacing-sm: 8px;
   --spacing-md: 16px;
+  --spacing-lg: 32px;
   --spacing-xl: 48px;
   --spacing-xl2: 72px;
   --spacing-xl3: 144px;
@@ -79,6 +80,18 @@ h6 {
 
 .gap-lg {
   gap: 24px;
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
 }
 
 .mt-lg {

@@ -3,6 +3,7 @@ import Nullstack, { NullstackClientContext } from 'nullstack';
 
 /* ---------- Common Components ---------- */
 import { Navbar } from '_common/components/Navbar';
+import { Footer } from '_common/components/Footer';
 
 /* ---------- Module Templates ---------- */
 import { HeroSection } from '_modules/home/hero';
@@ -46,6 +47,8 @@ export class Home extends Nullstack<Props> {
         <PortfolioSection language={language} />
 
         <LibrariesSection language={language} />
+
+        <Footer />
       </main>
     );
   }
