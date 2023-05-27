@@ -1,6 +1,11 @@
+/* ---------- External ---------- */
 import Nullstack from 'nullstack';
+
+/* ---------- Common Components ---------- */
+import { SocialLinks } from '_common/components/Social';
+
+/* ---------- Styles ---------- */
 import './styles.css';
-import { SocialLinks } from '../Social';
 
 export class Footer extends Nullstack {
   render() {
