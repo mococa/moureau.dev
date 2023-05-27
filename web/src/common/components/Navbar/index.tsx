@@ -21,32 +21,8 @@ interface Props {
   language: Language;
 }
 export class Navbar extends Nullstack {
-  /* ---------- Proxies ---------- */
-  nav_links: HTMLElement = null;
-
-  /* ---------- Handlers ---------- */
-  handleMouseOver() {
-    if (!this.nav_links.classList.contains('hovered'))
-      this.nav_links.classList.add('hovered');
-  }
-
-  handleMouseOut() {
-    this.nav_links.classList.remove('hovered');
-  }
-
-  /* ---------- Life cycle ---------- */
-  hydrate() {
-    this.nav_links.addEventListener('mouseover', this.handleMouseOver);
-    this.nav_links.addEventListener('mouseout', this.handleMouseOut);
-  }
-
-  terminate() {
-    this.nav_links.removeEventListener('mouseover', this.handleMouseOver);
-    this.nav_links.removeEventListener('mouseout', this.handleMouseOut);
-  }
-
   /* ---------- Render ---------- */
-  render({ language }: NullstackClientContext<Props>) {
+  render({ language, router }: NullstackClientContext<Props>) {
     const { links } = translations.navbar;
 
     return (
@@ -58,17 +34,17 @@ export class Navbar extends Nullstack {
             <h3>moureau.dev</h3>
           </a>
 
-          <ul class="navbar-links" ref={this.nav_links}>
-            <li>
+          <ul class="navbar-links">
+            <li aria-selected={router.path === '/'}>
               <a href="/">{links.home[language]}</a>
             </li>
 
-            <li>
-              <a href="/">{links.about[language]}</a>
+            <li aria-selected={router.path === '/about'}>
+              <a href="/about">{links.about[language]}</a>
             </li>
 
-            <li>
-              <a href="/">Blog</a>
+            <li aria-selected={router.path === '/blog'}>
+              <a href="/blog">Blog</a>
             </li>
 
             <li>

@@ -47,6 +47,18 @@
   font-size: 1.25rem;
 }
 
+.navbar-links > li[aria-selected='false'] > a {
+  opacity: 50%;
+}
+
+.navbar-links > li:hover > a {
+  opacity: 100%;
+}
+
+.navbar-links > li:hover > a::after {
+  background-color: white;
+}
+
 .navbar-links li:last-of-type {
   padding-left: 12px;
   margin-top: 2px;
@@ -54,10 +66,6 @@
 
 .navbar-links > li > a {
   transition: 250ms ease-in-out;
-}
-
-.navbar-links.hovered > li > a:not(:hover) {
-  opacity: 50%;
 }
 
 @media (max-width: 500px) {
