@@ -11,6 +11,7 @@ import { AboutMeSection } from '_modules/home/about-me';
 import { SkillSection } from '_modules/home/skills';
 import { PortfolioSection } from '_modules/home/portfolio';
 import { LibrariesSection } from '_modules/home/libraries';
+import { ContactSection } from '_modules/home/contact';
 
 /* ---------- Constants ---------- */
 import { skills } from '_utils/constants/skills';
@@ -47,6 +48,8 @@ export class Home extends Nullstack<Props> {
         <PortfolioSection language={language} />
 
         <LibrariesSection language={language} />
+
+        <ContactSection language={language} />
 
         <Footer />
       </main>

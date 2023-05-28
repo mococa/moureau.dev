@@ -80,7 +80,7 @@ export class LanguageSelector extends Nullstack<Props> {
   /* ---------- Life cycles ---------- */
   hydrate({ page }: NullstackClientContext<Props>) {
     this.label = get_label({
-      language: (page.locale.split('-')[0] as Props['language']) || 'en',
+      language: (page.locale?.split('-')[0] as Props['language']) || 'en',
     });
 
     document.body.addEventListener('keydown', this._handleCloseMenu);

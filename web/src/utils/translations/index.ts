@@ -101,7 +101,10 @@ export const translations = {
     title: {
       en: ["I've been professionally developing for ", 'over %YEARS% years'],
       pt: ['Desenvolvo profissionalmente há ', 'mais de %YEARS% anos'],
-      fr: ['Je développe avec professionnalisme depuis ', 'plus de %YEARS% ans'],
+      fr: [
+        'Je développe avec professionnalisme depuis ',
+        'plus de %YEARS% ans',
+      ],
       es: ['He desarrollado profesionalmente por ', 'más de %YEARS% años'],
     },
     subtitle: {
@@ -227,6 +230,52 @@ export const translations = {
       pt: 'Voltar para a página inicial',
       fr: "Retour à la page d'accueil",
       es: 'Volver a la página principal',
+    },
+  },
+  get_in_touch: {
+    name: {
+      en: 'Get in touch',
+      pt: 'Contato',
+      fr: 'Contacte-moi',
+      es: 'Contacto',
+    },
+    title: {
+      en: 'Interested in reaching out?',
+      pt: 'Quer bater um papo?',
+      fr: 'Voulez-vous papoter sur quoi ?',
+      es: 'Quieres hablar un poco?',
+    },
+    subtitle: {
+      en: "Let's chat",
+      pt: 'Vamos conversar',
+      fr: 'Parlons',
+      es: 'Vamos conversar',
+    },
+    button: {
+      en: 'Send message',
+      pt: 'Enviar',
+      fr: 'Envoyer',
+      es: 'Enviar',
+    },
+    labels: {
+      name: {
+        en: 'Name',
+        pt: 'Nome',
+        fr: 'Nom',
+        es: 'Nombre',
+      },
+      email: {
+        en: 'E-mail',
+        pt: 'E-mail',
+        fr: 'Adresse e-mail',
+        es: 'E-mail',
+      },
+      description: {
+        en: 'Describe your project',
+        pt: 'Descreva seu projeto',
+        fr: 'Décris votre projet',
+        es: 'Descreva tu proyecto',
+      },
     },
   },
 } as const;
