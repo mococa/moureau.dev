@@ -34,20 +34,20 @@ export class Navbar extends Nullstack {
             <h3>moureau.dev</h3>
           </a>
 
-          <ul class="navbar-links">
-            <li aria-selected={router.path === '/'}>
+          <ul class="navbar-links" role="tablist">
+            <li role="tab" aria-selected={router.path === '/'}>
               <a href="/">{links.home[language]}</a>
             </li>
 
-            <li aria-selected={router.path === '/about'}>
+            <li role="tab" aria-selected={router.path === '/about'}>
               <a href="/about">{links.about[language]}</a>
             </li>
 
-            <li aria-selected={router.path === '/blog'}>
+            <li role="tab" aria-selected={router.path === '/blog'}>
               <a href="/blog">Blog</a>
             </li>
 
-            <li>
+            <li role="tab">
               <LanguageSelector language={language || 'en'} />
             </li>
           </ul>

@@ -13,8 +13,8 @@
 }
 
 .form-input:focus-within span,
-.form-input:has(input:not([aria-valuetext=''])) span,
-.form-input:has(textarea:not([aria-valuetext=''])) span {
+.form-input:has(input:not([data-value=''])) span,
+.form-input:has(textarea:not([data-value=''])) span {
   top: -24px;
   left: 0;
 
