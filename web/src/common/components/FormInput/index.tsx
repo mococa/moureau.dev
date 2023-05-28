@@ -1,5 +1,7 @@
+/* ---------- Styles ---------- */
 import './styles.css';
 
+/* ---------- Interfaces ---------- */
 interface Props {
   label: string;
   name: string;
