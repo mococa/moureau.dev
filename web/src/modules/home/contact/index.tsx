@@ -53,14 +53,14 @@ export class ContactSection extends Nullstack<Props> {
 
           <form onsubmit={this.handleSubmit}>
             <FormInput name="name" label={labels.name[language]}>
-              <input name="name" aria-valuetext={this.name} bind={this.name} />
+              <input name="name" data-value={this.name} bind={this.name} />
             </FormInput>
 
             <FormInput name="email" label={labels.email[language]}>
               <input
                 name="email"
                 type="email"
-                aria-valuetext={this.email}
+                data-value={this.email}
                 bind={this.email}
               />
             </FormInput>
@@ -68,7 +68,7 @@ export class ContactSection extends Nullstack<Props> {
             <FormInput name="body" label={labels.description[language]}>
               <textarea
                 name="body"
-                aria-valuetext={this.body}
+                data-value={this.body}
                 bind={this.body}
                 rows={5}
               />
