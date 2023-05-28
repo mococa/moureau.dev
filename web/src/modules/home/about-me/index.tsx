@@ -62,7 +62,7 @@ export const AboutMeSection = ({ apps, repos, language }: Props) => {
           </div>
 
           <div class="column">
-            <div class="row gap-lg">
+            <div class="github-apps row gap-lg">
               <div>
                 <h2>{repos}</h2>
 

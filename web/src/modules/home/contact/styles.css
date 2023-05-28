@@ -1,0 +1,33 @@
+#contact .content h3 {
+  font-size: calc(var(--section-title-fs) * 1.5);
+
+  max-width: 15ch;
+}
+
+#contact .content .column > b {
+  font-size: calc(var(--section-subtitle-fs) * 1.5);
+}
+
+#contact form {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  gap: 36px;
+}
+
+@media (max-width: 500px) {
+  #contact .content {
+    flex-flow: column;
+    gap: 48px;
+  }
+
+  #contact .content h3 {
+    font-size: var(--section-title-fs);
+  }
+
+  #contact .content .column > b {
+    margin-top: 12px;
+
+    font-size: var(--section-subtitle-fs);
+  }
+}

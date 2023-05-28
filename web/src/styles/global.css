@@ -78,8 +78,16 @@ h6 {
   text-transform: uppercase;
 }
 
+.gap-md {
+  gap: var(--spacing-md);
+}
+
 .gap-lg {
   gap: 24px;
+}
+
+.gap-xl {
+  gap: var(--spacing-xl);
 }
 
 .mb-lg {
