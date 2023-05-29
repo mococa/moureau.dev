@@ -40,7 +40,7 @@ export class ContactSection extends Nullstack<Props> {
     });
   }
   /* ---------- Handlers ---------- */
-  async handleSubmit(context?: NullstackClientContext) {
+  async handleSubmit() {
     const body = JSON.stringify({
       name: this.name,
       email: this.email,
