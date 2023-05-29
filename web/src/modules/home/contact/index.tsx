@@ -1,5 +1,8 @@
 /* ---------- External ---------- */
-import Nullstack from 'nullstack';
+import Nullstack, {
+  NullstackClientContext,
+  NullstackServerContext,
+} from 'nullstack';
 
 /* ---------- Types ---------- */
 import { Language } from '_@types';
@@ -26,13 +29,27 @@ export class ContactSection extends Nullstack<Props> {
   email: string = '';
   body: string = '';
 
+  /* ---------- Server functions ---------- */
+  static async NotifyContact({
+    body,
+    secrets,
+  }: Partial<NullstackServerContext<{ body: string }>>) {
+    fetch(`${secrets.apiEndpoint}/contact`, {
+      method: 'POST',
+      body,
+    });
+  }
   /* ---------- Handlers ---------- */
-  async handleSubmit() {
-    console.log({
+  async handleSubmit(context?: NullstackClientContext) {
+    const body = JSON.stringify({
       name: this.name,
       email: this.email,
       body: this.body,
     });
+
+    await ContactSection.NotifyContact({ body });
+
+    alert('Message sent! I will get back to you shortly ✅');
   }
 
   render({ language }: Props) {
