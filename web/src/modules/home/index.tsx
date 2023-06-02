@@ -21,6 +21,7 @@ import { Language } from '_@types';
 
 /* ---------- Styles ---------- */
 import './styles.css';
+import { RecentPosts } from './recent-posts';
 
 /* ---------- Interfaces ---------- */
 interface Props {
@@ -28,6 +29,7 @@ interface Props {
 }
 
 export class Home extends Nullstack<Props> {
+  /* ---------- Life cycle ---------- */
   initiate({ page }: NullstackClientContext<Props>) {
     page.title = 'Moureau - Fullstack Developer';
     page.description =
@@ -50,6 +52,8 @@ export class Home extends Nullstack<Props> {
         <LibrariesSection language={language} />
 
         <ContactSection language={language} />
+
+        <RecentPosts language={language} />
 
         <Footer />
       </main>

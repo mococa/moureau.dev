@@ -8,7 +8,7 @@ interface Props {
   href?: string;
   children?: JSX.Element;
   active?: Booleanish;
-  size?: 'small';
+  size?: 'small' | 'large';
   target?: HTMLAttributeAnchorTarget;
 }
 

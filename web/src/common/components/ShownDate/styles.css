@@ -1,0 +1,11 @@
+.cool-date {
+  display: flex;
+  gap: 8px;
+
+  font-size: 1.5rem;
+}
+
+.cool-date span {
+  color: var(--accent);
+  font-weight: 600;
+}

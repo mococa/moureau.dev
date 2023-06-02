@@ -5,6 +5,8 @@
   "author": "Luiz Felipe Moureau",
   "license": "ISC",
   "devDependencies": {
+    "@types/node-schedule": "^2.1.0",
+    "@types/remarkable": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.40.0",
@@ -26,7 +28,13 @@
     "serve": "npm run start"
   },
   "dependencies": {
+    "codemirror": "5.45.0",
     "cookie": "^0.5.0",
-    "date-fns": "^2.29.3"
+    "date-fns": "^2.29.3",
+    "highlight.js": "^11.8.0",
+    "hypermd": "^0.3.11",
+    "node-schedule": "^2.1.1",
+    "remarkable": "^2.0.1",
+    "remarkable-emoji": "^0.1.3"
   }
 }

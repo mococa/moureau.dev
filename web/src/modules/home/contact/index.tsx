@@ -1,8 +1,5 @@
 /* ---------- External ---------- */
-import Nullstack, {
-  NullstackClientContext,
-  NullstackServerContext,
-} from 'nullstack';
+import Nullstack, { NullstackServerContext } from 'nullstack';
 
 /* ---------- Types ---------- */
 import { Language } from '_@types';
@@ -70,7 +67,12 @@ export class ContactSection extends Nullstack<Props> {
 
           <form onsubmit={this.handleSubmit}>
             <FormInput name="name" label={labels.name[language]}>
-              <input name="name" data-value={this.name} bind={this.name} />
+              <input
+                name="name"
+                data-value={this.name}
+                bind={this.name}
+                required
+              />
             </FormInput>
 
             <FormInput name="email" label={labels.email[language]}>
@@ -79,6 +81,7 @@ export class ContactSection extends Nullstack<Props> {
                 type="email"
                 data-value={this.email}
                 bind={this.email}
+                required
               />
             </FormInput>
 
@@ -88,6 +91,7 @@ export class ContactSection extends Nullstack<Props> {
                 data-value={this.body}
                 bind={this.body}
                 rows={5}
+                required
               />
             </FormInput>
 

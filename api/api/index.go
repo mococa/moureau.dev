@@ -28,5 +28,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	server.POST("/contact", handlers.Contact)
 
+	server.GET("/blog/posts", handlers.GetBlogPosts)
+
+	server.GET("/blog/posts/delete/:id", handlers.DeleteBlogPost)
+
+	server.POST("/blog/posts/update/:id", handlers.UpdateBlogPost)
+
+	server.POST("/blog/posts", handlers.CreateBlogPost)
+
 	server.Handle(w, r)
 }

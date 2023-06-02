@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/bwmarrin/discordgo v0.27.1
+	github.com/lib/pq v1.10.9
 	github.com/tbxark/g4vercel v0.0.4
 )
 

@@ -66,6 +66,10 @@ h6 {
   width: 100%;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .wrap {
   flex-wrap: wrap;
 }

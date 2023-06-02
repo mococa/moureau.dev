@@ -1,4 +1,6 @@
 .form-input {
+  display: block;
+
   position: relative;
 }
 
@@ -6,6 +8,8 @@
   position: absolute;
   top: 14px;
   left: 14px;
+
+  cursor: text;
 
   font-size: 1.25rem;
 
@@ -17,6 +21,8 @@
 .form-input:has(textarea:not([data-value=''])) span {
   top: -24px;
   left: 0;
+
+  cursor: default;
 
   font-size: 1rem;
 
