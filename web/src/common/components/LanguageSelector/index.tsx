@@ -57,7 +57,7 @@ export class LanguageSelector extends Nullstack<Props> {
         {(['pt', 'en', 'fr', 'es'] as const).map(language => (
           <li
             onmouseover={() => (this.label = get_label({ language }))}
-            aria-selected={language === chosen_language}
+            aria-selected={language === chosen_language ? 'true' : 'false'}
           >
             <a
               onclick={() =>

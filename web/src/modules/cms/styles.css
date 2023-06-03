@@ -80,4 +80,16 @@
 
 .paper:nth-child(2) {
   width: 225px;
+
+  padding: 32px;
+}
+
+.expand-button.delete {
+  color: #fb3a3a;
+}
+
+.expand-button.delete:hover {
+  color: white;
+
+  background-color: #fb3a3a;
 }

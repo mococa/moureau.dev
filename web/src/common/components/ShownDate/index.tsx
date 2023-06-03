@@ -1,8 +1,11 @@
+/* ---------- External ---------- */
 import { formatRelative } from 'date-fns';
 import enGB from 'date-fns/locale/en-GB/index';
 
+/* ---------- Styles ---------- */
 import './styles.css';
 
+/* ---------- Interfaces ---------- */
 interface Props {
   date: Date;
   label: string;

@@ -16,6 +16,7 @@ export namespace Models {
     author: string;
     language: Language;
     image: string;
+    content: string;
   }
 }
 

@@ -20,6 +20,11 @@ interface Props {
   language: Language;
 }
 
+interface MessageForm {
+  body: string;
+  email: string;
+  name: string;
+}
 export class ContactSection extends Nullstack<Props> {
   /* ---------- Proxies ---------- */
   name: string = '';
@@ -28,23 +33,21 @@ export class ContactSection extends Nullstack<Props> {
 
   /* ---------- Server functions ---------- */
   static async NotifyContact({
-    body,
-    secrets,
-  }: Partial<NullstackServerContext<{ body: string }>>) {
-    fetch(`${secrets.apiEndpoint}/contact`, {
-      method: 'POST',
-      body,
-    });
+    services,
+    message,
+  }: Partial<NullstackServerContext<{ message: MessageForm }>>) {
+    await services.contact.sendMessage({ ...message });
   }
+
   /* ---------- Handlers ---------- */
   async handleSubmit() {
-    const body = JSON.stringify({
-      name: this.name,
-      email: this.email,
-      body: this.body,
+    await ContactSection.NotifyContact({
+      message: {
+        body: this.body,
+        email: this.email,
+        name: this.name,
+      },
     });
-
-    await ContactSection.NotifyContact({ body });
 
     alert('Message sent! I will get back to you shortly ✅');
   }

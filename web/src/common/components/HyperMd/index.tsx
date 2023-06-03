@@ -8,6 +8,8 @@ import './styles.css';
 /* ---------- Interfaces ---------- */
 interface Props {
   onChange: (md: string) => void;
+  defaultValue?: string;
+  getEditor: (editor: any) => void;
 }
 
 export class HyperMd extends Nullstack<Props> {
@@ -15,7 +17,7 @@ export class HyperMd extends Nullstack<Props> {
   editor_ref: HTMLTextAreaElement;
 
   /* ---------- Handlers ---------- */
-  async handleSetupMarkdown({ onChange }: Props) {
+  async handleSetupMarkdown({ onChange, defaultValue, getEditor }: Props) {
     require('codemirror/mode/htmlmixed/htmlmixed');
     require('codemirror/mode/markdown/markdown');
     require('codemirror/addon/display/placeholder');
@@ -40,10 +42,14 @@ export class HyperMd extends Nullstack<Props> {
     editor.on('change', () => {
       onChange(editor.getValue());
     });
+
+    if (defaultValue) editor.getDoc().setValue(defaultValue);
+
+    getEditor(editor);
   }
 
-  async hydrate({ onChange }: Props) {
-    this.handleSetupMarkdown({ onChange });
+  async hydrate({ onChange, defaultValue, getEditor }: Props) {
+    this.handleSetupMarkdown({ onChange, defaultValue, getEditor });
   }
 
   render() {

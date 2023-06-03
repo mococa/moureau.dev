@@ -9,6 +9,8 @@ import cookie from 'cookie';
 /* ---------- Modules ---------- */
 import { Home } from '_modules/home';
 import { NotFound } from '_modules/404';
+import { Post } from '_modules/post';
+import { CMS } from '_modules/cms';
 
 /* ---------- Translations ---------- */
 import { get_language_from_locale } from '_utils/translations';
@@ -16,8 +18,6 @@ import { get_language_from_locale } from '_utils/translations';
 /* ---------- Styles ---------- */
 import '/public/fonts/styles.css';
 import '_styles/global.css';
-import { Post } from '_modules/post';
-import { CMS } from '_modules/cms';
 
 declare function Head(): NullstackNode;
 
@@ -51,25 +51,26 @@ class Application extends Nullstack {
   }
 
   /* ---------- Server functions ---------- */
-  static async getLocale(context: NullstackServerContext) {
-    const cookies = context.request.headers.cookie;
+  static async getLocale({ request }: Partial<NullstackServerContext>) {
+    const cookies = request.headers?.cookie;
     const { locale } = cookie.parse(cookies || '');
 
     return { locale };
   }
 
   /* ---------- Handlers ---------- */
-  handleChangeLocale({ locale }: { locale: string }) {
+  handleChangeLocale({
+    page,
+    locale,
+  }: NullstackClientContext<{ locale: string }>) {
     this.locale = locale;
 
-    document.documentElement.lang = locale;
+    page.locale = locale;
   }
 
   /* ---------- Life cycle ---------- */
   async initiate({ page }: NullstackClientContext) {
-    const { locale } = await Application.getLocale(
-      {} as NullstackServerContext,
-    );
+    const { locale } = await Application.getLocale({});
 
     this.locale = locale || 'en-US';
 
@@ -101,11 +102,14 @@ class Application extends Nullstack {
 
         <Home route="/" language={language} />
 
-        <Post route="/blog/post/:id" />
+        <Post route="/blog/post/:id" language={language} />
 
         <CMS route="/cms" language={language} />
+        <CMS route="/cms/post/:id" language={language} />
 
-        {page.status !== 200 && <NotFound language={language} route="*" />}
+        {(page.not_found || page.status === 404) && (
+          <NotFound language={language} route="*" />
+        )}
       </body>
     );
   }

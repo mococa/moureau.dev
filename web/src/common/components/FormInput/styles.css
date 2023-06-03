@@ -47,9 +47,10 @@
   resize: vertical;
 
   transition: 300ms;
-
-  &:focus-visible,
-  &:focus {
-    outline: 1px solid #5d6c83;
-  }
+}
+.form-input input:focus-visible,
+.form-input textarea:focus-visible,
+.form-input input:focus,
+.form-input textarea:focus {
+  outline: 1px solid #5d6c83;
 }

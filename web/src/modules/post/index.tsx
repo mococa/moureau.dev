@@ -1,43 +1,65 @@
+/* ---------- External ---------- */
 import Nullstack, {
+  BaseNullstackClientContext,
   NullstackClientContext,
   NullstackServerContext,
 } from 'nullstack';
 
+/* ---------- Modules ---------- */
+import { NotFound } from '_modules/404';
+
+/* ---------- Common Components ---------- */
 import { Footer } from '_common/components/Footer';
 import { Navbar } from '_common/components/Navbar';
 import { ShownDate } from '_common/components/ShownDate';
 
-import { Models } from '_@types';
+/* ---------- Types ---------- */
+import { Language, Models } from '_@types';
 
+/* ---------- Styles ---------- */
 import 'highlight.js/styles/vs2015.css';
 import './styles.css';
 
+interface Props {
+  language: Language;
+}
+
 export class Post extends Nullstack {
+  /* ---------- Proxies ---------- */
   post: Models.BlogPost = null;
 
-  static async getPost({
+  /* ---------- Server Functions ---------- */
+  static async GetPost({
     post_id,
     settings,
   }: Partial<NullstackServerContext<{ post_id: string }>>) {
-    const posts = (settings.blog_posts as unknown as Models.BlogPost[]) || [];
+    const posts = settings.blog_posts || [];
 
     return posts.find(post => post.id === Number(post_id));
   }
 
-  async initiate({ params, page }: NullstackClientContext) {
+  /* ---------- Life cycle ---------- */
+  async initiate({ params, page, router }: NullstackClientContext) {
+    page.not_found = false;
     const post_id = String(params.id);
 
-    const post = await Post.getPost({ post_id });
+    const post = await Post.GetPost({ post_id });
+
+    if (!post) {
+      page.not_found = true;
+      return;
+    }
 
     this.post = post;
-
     page.title = post.title;
     page.description = post.description;
-
-    // if (!this.post) throw new Error('Post not found');
   }
 
-  render() {
+  render({ page, language }: NullstackClientContext<Props>) {
+    if (page.not_found) return <NotFound language={language} />;
+
+    if (!this.post) return null;
+
     return (
       <main class="post-page">
         <Navbar />
@@ -69,7 +91,7 @@ export class Post extends Nullstack {
             </span>
           </header>
 
-          <main class="content column" html={this.post?.body} />
+          <main class="content column" html={this.post?.content} />
         </article>
 
         <Footer />
