@@ -1,13 +1,10 @@
 import Nullstack, { NullstackServerContext } from 'nullstack';
 import { RecurrenceRule, scheduleJob } from 'node-schedule';
-import { Remarkable } from 'remarkable';
-import RemarkableEmoji from 'remarkable-emoji';
 
-import Application from './src/Application';
+import Application from '_Application';
 import { plugins } from 'plugins';
-
-import { highlight } from './src/utils/highlight';
-import { Models } from '_@types';
+import { services } from 'services';
+import { setup_post } from '_utils/setup-post';
 
 const context = Nullstack.start(Application) as NullstackServerContext;
 
@@ -18,45 +15,28 @@ const job = scheduleJob(rule, async () => {
   console.log('Fetching threads...');
 
   try {
-    const response = await fetch(`${secrets.apiEndpoint}/blog/posts`, {
-      keepalive: true,
-    });
-
-    const { posts } = await response.json();
-
-    if (!posts) return;
+    const { data } = await services.blog.getPosts();
 
     console.log('Posts fetched !');
 
-    context.settings.blog_posts = (posts || [])
-      .map((post: Models.BlogPost) => {
-        const remarkable = new Remarkable({
-          highlight,
-          html: true,
-          typographer: true,
-        });
-
-        return {
-          ...post,
-          body: remarkable.render(post.body),
-        };
-      })
-      .filter(Boolean)
-      .sort(
-        (a: Models.BlogPost, b: Models.BlogPost) => b.created_at.localeCompare(a.created_at),
+    context.settings.blog_posts = (data.posts || [])
+      .map(setup_post)
+      .sort(({ created_at }, next_post) =>
+        next_post.created_at.localeCompare(created_at),
       );
   } catch (error) {
     console.error({ error });
   }
 });
 
+context.services = services;
+
 context.start = async function start() {
   // https://nullstack.app/application-startup
-
   job.invoke();
 };
 
-const { project, worker, secrets } = context;
+const { project, worker } = context;
 
 project.shortName = 'Moureau';
 project.name = 'Moureau';
@@ -72,25 +52,12 @@ const flags_regex = [
   /https\:\/\/hatscripts\.github\.io\/circle\-flags\/flags\/fr.svg/,
   /https\:\/\/hatscripts\.github\.io\/circle\-flags\/flags\/es.svg/,
   /https\:\/\/hatscripts\.github\.io\/circle\-flags\/flags\/uk.svg/,
+  /\/fonts\/Spacegrotesk\/SpaceGrotesk\-Bold\.ttf/,
+  /\/fonts\/Spacegrotesk\/SpaceGrotesk\-Regular\.ttf/,
+  /\/fonts\/Spacegrotesk\/SpaceGrotesk\-Medium\.ttf/,
 ];
 
 worker.staleWhileRevalidate = [...flags_regex];
-
-function parseMetadata(string_metadata: string) {
-  const data = {};
-
-  const lines: string[] = string_metadata?.trim().split('\n');
-
-  for (const line of lines || []) {
-    const [key, value, ...value_parts] = line
-      .split(':')
-      .map(item => item.trim());
-
-    data[key] = `${value}:${value_parts.join(':')}`.slice(0, -1);
-  }
-
-  return data;
-}
 
 export default context;
 

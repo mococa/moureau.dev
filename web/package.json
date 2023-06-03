@@ -15,19 +15,20 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "nullstack": "~0.17.0",
+    "nullstack": "~0.19.1",
     "prettier": "^2.8.8",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.0.4"
   },
   "scripts": {
     "start": "node .production/server.js",
-    "dev": "npx nullstack start",
+    "dev": "npx nullstack start --skip-cache",
     "build": "npx nullstack build",
     "preserve": "npm run build",
     "serve": "npm run start"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "codemirror": "5.45.0",
     "cookie": "^0.5.0",
     "date-fns": "^2.29.3",

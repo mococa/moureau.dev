@@ -60,4 +60,7 @@ const not_found_page_plugin: NullstackPlugin = {
   server: true,
 };
 
-export const plugins = [fix_boolean_plugin, not_found_page_plugin];
+export const plugins = [
+  // fix_boolean_plugin,
+  not_found_page_plugin,
+];
