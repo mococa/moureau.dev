@@ -5,6 +5,7 @@
   "author": "Luiz Felipe Moureau",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.12.0",
     "@types/node-schedule": "^2.1.0",
     "@types/remarkable": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
@@ -25,7 +26,8 @@
     "dev": "npx nullstack start --skip-cache",
     "build": "npx nullstack build",
     "preserve": "npm run build",
-    "serve": "npm run start"
+    "serve": "npm run start",
+    "lint": "eslint --fix ."
   },
   "dependencies": {
     "axios": "^1.4.0",

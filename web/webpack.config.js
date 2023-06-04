@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const [server, client] = require('nullstack/webpack.config');
-
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const plugins = [new TsconfigPathsPlugin({})];
