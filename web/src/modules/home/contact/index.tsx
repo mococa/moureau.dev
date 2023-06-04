@@ -1,8 +1,5 @@
 /* ---------- External ---------- */
-import Nullstack, {
-  NullstackClientContext,
-  NullstackServerContext,
-} from 'nullstack';
+import Nullstack, { NullstackServerContext } from 'nullstack';
 
 /* ---------- Types ---------- */
 import { Language } from '_@types';
@@ -23,31 +20,34 @@ interface Props {
   language: Language;
 }
 
+interface MessageForm {
+  body: string;
+  email: string;
+  name: string;
+}
 export class ContactSection extends Nullstack<Props> {
   /* ---------- Proxies ---------- */
-  name: string = '';
-  email: string = '';
-  body: string = '';
+  name: string;
+  email: string;
+  body: string;
 
   /* ---------- Server functions ---------- */
   static async NotifyContact({
-    body,
-    secrets,
-  }: Partial<NullstackServerContext<{ body: string }>>) {
-    fetch(`${secrets.apiEndpoint}/contact`, {
-      method: 'POST',
-      body,
-    });
+    services,
+    message,
+  }: Partial<NullstackServerContext<{ message: MessageForm }>>) {
+    await services.contact.sendMessage({ ...message });
   }
+
   /* ---------- Handlers ---------- */
   async handleSubmit() {
-    const body = JSON.stringify({
-      name: this.name,
-      email: this.email,
-      body: this.body,
+    await ContactSection.NotifyContact({
+      message: {
+        body: this.body,
+        email: this.email,
+        name: this.name,
+      },
     });
-
-    await ContactSection.NotifyContact({ body });
 
     alert('Message sent! I will get back to you shortly ✅');
   }
@@ -70,7 +70,12 @@ export class ContactSection extends Nullstack<Props> {
 
           <form onsubmit={this.handleSubmit}>
             <FormInput name="name" label={labels.name[language]}>
-              <input name="name" data-value={this.name} bind={this.name} />
+              <input
+                name="name"
+                data-value={this.name}
+                bind={this.name}
+                required
+              />
             </FormInput>
 
             <FormInput name="email" label={labels.email[language]}>
@@ -79,6 +84,7 @@ export class ContactSection extends Nullstack<Props> {
                 type="email"
                 data-value={this.email}
                 bind={this.email}
+                required
               />
             </FormInput>
 
@@ -88,6 +94,7 @@ export class ContactSection extends Nullstack<Props> {
                 data-value={this.body}
                 bind={this.body}
                 rows={5}
+                required
               />
             </FormInput>
 

@@ -1,8 +1,8 @@
 /* ---------- Components ---------- */
-import { SocialLinks } from "_common/components/Social";
+import { SocialLinks } from '_common/components/Social';
 
 /* ---------- Styles ---------- */
-import "./styles.css";
+import './styles.css';
 
 /* ---------- Interfaces ---------- */
 interface Props {

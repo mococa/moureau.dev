@@ -7,8 +7,11 @@ import Nullstack, {
 import cookie from 'cookie';
 
 /* ---------- Modules ---------- */
+import { Blog } from '_modules/blog';
+import { CMS } from '_modules/cms';
 import { Home } from '_modules/home';
 import { NotFound } from '_modules/404';
+import { Post } from '_modules/post';
 
 /* ---------- Translations ---------- */
 import { get_language_from_locale } from '_utils/translations';
@@ -49,25 +52,26 @@ class Application extends Nullstack {
   }
 
   /* ---------- Server functions ---------- */
-  static async getLocale(context: NullstackServerContext) {
-    const cookies = context.request.headers.cookie;
+  static async getLocale({ request }: Partial<NullstackServerContext>) {
+    const cookies = request.headers?.cookie;
     const { locale } = cookie.parse(cookies || '');
 
     return { locale };
   }
 
   /* ---------- Handlers ---------- */
-  handleChangeLocale({ locale }: { locale: string }) {
+  handleChangeLocale({
+    page,
+    locale,
+  }: NullstackClientContext<{ locale: string }>) {
     this.locale = locale;
 
-    document.documentElement.lang = locale;
+    page.locale = locale;
   }
 
   /* ---------- Life cycle ---------- */
   async initiate({ page }: NullstackClientContext) {
-    const { locale } = await Application.getLocale(
-      {} as NullstackServerContext,
-    );
+    const { locale } = await Application.getLocale({});
 
     this.locale = locale || 'en-US';
 
@@ -81,7 +85,7 @@ class Application extends Nullstack {
   hydrate(ctx) {
     ctx.handleChangeLocale = this.handleChangeLocale;
 
-    document.documentElement.lang = this.locale;
+    // document.documentElement.lang = this.locale;
   }
 
   /* ---------- Render ---------- */
@@ -89,18 +93,28 @@ class Application extends Nullstack {
     const language = get_language_from_locale(page.locale || this.locale);
 
     return (
-      <body>
-        <Head />
+      <html lang={page.locale || this.locale}>
+        <body>
+          <Head />
 
-        <hello>
-          Greetings, inspector! If you wanna see more, check my Github: mococa
-          😏
-        </hello>
+          <hello>
+            Greetings, inspector! If you wanna see more, check my Github: mococa
+            😏
+          </hello>
 
-        {page.status !== 200 && <NotFound language={language} route="*" />}
+          <Home route="/" language={language} />
 
-        <Home route="/" language={language} />
-      </body>
+          <CMS route="/cms" language={language} />
+
+          <Blog route="/blog" language={language} />
+
+          <Post route="/blog/post/:id" language={language} />
+
+          {(page.not_found || page.status === 404) && (
+            <NotFound language={language} route="*" />
+          )}
+        </body>
+      </html>
     );
   }
 }

@@ -278,4 +278,113 @@ export const translations = {
       },
     },
   },
+  latest_articles: {
+    title: {
+      en: 'Check out my latest articles and tutorials',
+      pt: 'Dá uma olhada nos meus últimos posts e tutoriais',
+      fr: "Jette un coup d'œil sur mes derniers articles et tutoriels",
+      es: 'Mira mis Últimos artículos e tutoriais',
+    },
+    button: {
+      en: 'Browse all articles',
+      pt: 'Ver todas as postagens',
+      fr: 'Parcourir tous les articles',
+      es: 'Ver todos los artículos',
+    },
+  },
+  blog: {
+    featured: {
+      en: 'Featured',
+      pt: 'Em destaque',
+      es: 'Último post',
+      fr: 'Dernier article',
+    },
+
+    articles: {
+      en: 'Articles',
+      pt: 'Postagens',
+      es: 'Artículos',
+      fr: 'Articles',
+    },
+  },
+  cms: {
+    title: {
+      new_post: {
+        en: 'New post',
+        pt: 'Nova postagem',
+        es: 'Nueva publicación',
+        fr: 'Nouvel article',
+      },
+      edit_post: {
+        en: 'Edit post',
+        pt: 'Editar postagem',
+        es: 'Editar publicación',
+        fr: 'Modifier article',
+      },
+    },
+    button: {
+      back: {
+        en: 'Back',
+        pt: 'Voltar',
+        es: 'Volver',
+        fr: 'Retour',
+      },
+      create_post: {
+        en: 'Create post',
+        pt: 'Criar postagem',
+        es: 'Crear publicación',
+        fr: 'Créer article',
+      },
+      save_changes: {
+        en: 'Save changes',
+        pt: 'Salvar alterações',
+        es: 'Guardar cambios',
+        fr: 'Sauvegarder les modifications',
+      },
+      delete_post: {
+        en: 'Delete post',
+        pt: 'Deletar postagem',
+        es: 'Eliminar publicación',
+        fr: 'Supprimer article',
+      },
+    },
+    articles: {
+      en: 'Articles',
+      pt: 'Postagens',
+      es: 'Artículos',
+      fr: 'Articles',
+    },
+    inputs: {
+      title: {
+        en: 'Title',
+        pt: 'Título',
+        es: 'Título',
+        fr: 'Titre',
+      },
+      description: {
+        en: 'Description',
+        pt: 'Descrição',
+        es: 'Descripción',
+        fr: 'Description',
+      },
+      author: {
+        en: 'Author',
+        pt: 'Autor',
+        es: 'Autor',
+        fr: 'Auteur',
+      },
+      image: {
+        en: 'Image',
+        pt: 'Imagem',
+        es: 'Imagen',
+        fr: 'Image',
+      },
+      language: {
+        en: 'Language',
+        pt: 'Idioma',
+        es: 'Idioma',
+        fr: 'Langue',
+      },
+    },
+  },
 } as const;

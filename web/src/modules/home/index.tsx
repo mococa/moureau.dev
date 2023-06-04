@@ -12,6 +12,7 @@ import { SkillSection } from '_modules/home/skills';
 import { PortfolioSection } from '_modules/home/portfolio';
 import { LibrariesSection } from '_modules/home/libraries';
 import { ContactSection } from '_modules/home/contact';
+import { RecentPosts } from '_modules/home/recent-posts';
 
 /* ---------- Constants ---------- */
 import { skills } from '_utils/constants/skills';
@@ -28,13 +29,14 @@ interface Props {
 }
 
 export class Home extends Nullstack<Props> {
+  /* ---------- Life cycle ---------- */
   initiate({ page }: NullstackClientContext<Props>) {
     page.title = 'Moureau - Fullstack Developer';
     page.description =
       "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
   }
 
-  render({ language }: NullstackClientContext<Props>) {
+  render({ language }: NullstackClientContext) {
     return (
       <main>
         <Navbar language={language} />
@@ -48,6 +50,8 @@ export class Home extends Nullstack<Props> {
         <PortfolioSection language={language} />
 
         <LibrariesSection language={language} />
+
+        <RecentPosts language={language} />
 
         <ContactSection language={language} />
 
