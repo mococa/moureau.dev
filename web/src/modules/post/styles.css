@@ -3,6 +3,10 @@
   flex-flow: column;
   gap: 24px;
 
+  padding: 0;
+
+  max-width: 1100px;
+
   margin-top: 24px;
   margin-bottom: 72px;
 }
@@ -15,7 +19,7 @@
 
 .post-page header.content div {
   width: fit-content;
-  margin: 72px auto 40px;
+  margin: 40px auto 44px;
 }
 
 .post-page header.content span {
@@ -51,7 +55,6 @@
 }
 
 .post-page article.content {
-  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -63,8 +66,25 @@ article.content .row.space-between {
   border-bottom: 4px solid rgb(45 52 63);
 }
 
+img.content {
+  width: 100%;
+
+  border-radius: 8px;
+}
+
+main.content {
+  width: 100%;
+}
+
+.post-page blockquote {
+  padding: 4px;
+  padding-left: 12px;
+
+  border-left: 4px solid;
+}
+
 @media (max-width: 500px) {
-  header.content.column {
+  .post-page .content {
     margin: 16px;
   }
 
@@ -72,19 +92,27 @@ article.content .row.space-between {
     margin-top: 24px;
   }
 
-  header.content.column h1 {
+  .post-page header.content.column h1 {
     font-size: 2.5rem;
   }
 
-  img.content {
-    width: 100%;
+  .post-page img.content {
+    width: fill-available;
+    width: -webkit-fill-available;
   }
 
-  article.content {
+  .post-page article.content {
     padding: 0 16px;
   }
 
-  main.content {
-    padding: 0;
+  .post-page > article > header {
+    border-width: 1px;
+  }
+
+  .post-page main.content {
+    margin: 0;
+    padding: 0 0 72px;
+
+    width: 100%;
   }
 }

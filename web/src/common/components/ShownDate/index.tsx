@@ -1,6 +1,9 @@
 /* ---------- External ---------- */
 import { formatRelative } from 'date-fns';
-import enGB from 'date-fns/locale/en-GB/index';
+import { enUS as en, fr, es, ptBR as pt } from 'date-fns/esm/locale';
+
+/* ---------- Types ---------- */
+import { Language } from '_@types';
 
 /* ---------- Styles ---------- */
 import './styles.css';
@@ -10,13 +13,14 @@ interface Props {
   date: Date;
   label: string;
   href?: string;
+  language: Language;
 }
 
-export const ShownDate = ({ date, href, label }: Props) => (
+export const ShownDate = ({ date, href, label, language }: Props) => (
   <div class="cool-date">
     <b title={date.toLocaleString()}>
       {formatRelative(date, new Date(), {
-        locale,
+        locale: locale(language),
       })}
     </b>
 
@@ -32,15 +36,22 @@ export const ShownDate = ({ date, href, label }: Props) => (
   </div>
 );
 
-const format_relative_locale: { [key: string]: string } = {
-  yesterday: "'Yesterday'", // Yesterday, 07:19 AM
-  today: "'Today'", // Today, 12:09 PM
-  other: 'dd/MM', // 12/02, 01:04 PM
-  other_year: 'dd/MM/yyyy', // 12/02/2001, 3:15 PM
+const format_relative_locale: Record<string, string> = {
+  yesterday: "'Yesterday'", // Yesterday
+  today: "'Today'", // Today
+  other: 'dd/MM', // 12/02
+  other_year: 'dd/MM/yyyy', // 12/02/2001
 };
 
-const locale = {
-  ...enGB,
+const locales = {
+  en,
+  pt,
+  fr,
+  es,
+};
+
+const locale = (lang: Language) => ({
+  ...locales[lang],
   formatRelative: (token: string, string_date: string) => {
     const date = new Date(string_date);
 
@@ -48,8 +59,25 @@ const locale = {
       return format_relative_locale.other_year;
     }
 
-    const formatting = format_relative_locale[token];
+    const translations = {
+      today: {
+        en: "'Today'",
+        pt: "'Hoje'",
+        fr: "'Aujourd’hui'",
+        es: "'Hoy'",
+      },
+      yesterday: {
+        en: "'Yesterday'",
+        pt: "'Ontem'",
+        fr: "'Hier'",
+        es: "'Ayer'",
+      },
+    };
+
+    const formatting = format_relative_locale[token]
+      .replace("'Today'", translations.today[lang])
+      .replace("'Yesterday'", translations.yesterday[lang]);
 
     return formatting || format_relative_locale.other;
   },
-};
+});

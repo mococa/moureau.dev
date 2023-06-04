@@ -16,6 +16,9 @@ import { FormInput } from '_common/components/FormInput';
 /* ---------- Utils ---------- */
 import { setup_post } from '_utils/setup-post';
 
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
+
 /* ---------- Styles ---------- */
 import './styles.css';
 
@@ -26,14 +29,14 @@ interface Props {
 
 export class CMS extends Nullstack<Props> {
   /* ---------- Proxies ---------- */
-  selected_article: number = NaN;
+  selected_article: string;
   articles: Models.BlogPost[] = [];
-  title: string = '';
-  description: string = '';
-  author: string = '';
-  image: string = '';
+  title: string;
+  description: string;
+  author: string;
+  image: string;
   language: Language;
-  body: string = '';
+  body: string;
   editor: {
     getDoc(): {
       setValue(value: string);
@@ -75,17 +78,25 @@ export class CMS extends Nullstack<Props> {
     settings,
     services,
   }: Partial<NullstackServerContext<{ body: Models.BlogPost }>>) {
-    const { data } = await services.blog.editPost({ ...body });
+    try {
+      const { data } = await services.blog.editPost({ ...body });
 
-    settings.blog_posts = settings.blog_posts.map(post => {
-      if (post.id === body.id) {
-        return setup_post(data.post);
-      }
+      settings.blog_posts = settings.blog_posts
+        .map(post => {
+          if (post.id === body.id) {
+            return setup_post(data.post);
+          }
 
-      return post;
-    });
+          return post;
+        })
+        .sort(({ updated_at }, next_post) =>
+          next_post.updated_at.localeCompare(updated_at),
+        );
 
-    return data;
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   /* ---------- Life cycle ---------- */
@@ -93,7 +104,7 @@ export class CMS extends Nullstack<Props> {
     this.articles = settings.blog_posts || [];
   }
 
-  async prepare({ page, language, settings }: NullstackClientContext<Props>) {
+  prepare({ page, language, settings }: NullstackClientContext<Props>) {
     page.title = 'Moureau.dev - CMS';
     page.description = 'Moureau.dev Content Management System page';
 
@@ -116,7 +127,7 @@ export class CMS extends Nullstack<Props> {
     this.description = post.description;
     this.image = post.image;
     this.language = post.language;
-    this.selected_article = post_id;
+    this.selected_article = String(post_id);
     this.editor.getDoc().setValue(post.body);
   }
 
@@ -126,7 +137,7 @@ export class CMS extends Nullstack<Props> {
     this.body = '';
     this.description = '';
     this.image = '';
-    this.selected_article = NaN;
+    this.selected_article = '';
     this.editor.getDoc().setValue('');
   }
 
@@ -144,11 +155,7 @@ export class CMS extends Nullstack<Props> {
 
     alert('Post successfully created');
 
-    this.articles.push(setup_post(post));
-
-    this.articles.sort(({ created_at }, next_post) =>
-      next_post.created_at.localeCompare(created_at),
-    );
+    this.articles = [setup_post(post), ...this.articles];
 
     this.handleResetSelection();
   }
@@ -191,10 +198,13 @@ export class CMS extends Nullstack<Props> {
     this.handleResetSelection();
   }
 
-  renderLanguageSelector() {
+  /* ---------- Renderers ---------- */
+  renderLanguageSelector({ language }: Partial<Props>) {
+    const { inputs } = translations.cms;
+
     return (
       <label class="language-input-label">
-        <span>Language</span>
+        <span>{inputs.language[language]}</span>
 
         <ul class="language-menu-list">
           {(['pt', 'en', 'fr', 'es'] as const).map(language => (
@@ -214,12 +224,14 @@ export class CMS extends Nullstack<Props> {
     );
   }
 
-  renderArticles({}: Partial<NullstackClientContext>) {
+  renderArticles({ language }: Partial<NullstackClientContext>) {
+    const { articles } = translations.cms;
+
     return (
       <div class="paper gap-md">
-        <h3>Articles</h3>
+        <h3>{articles[language]}</h3>
 
-        <ul>
+        <ul class="articles-list">
           {this.articles.map(({ title, id }) => (
             <li>
               <a
@@ -237,50 +249,59 @@ export class CMS extends Nullstack<Props> {
     );
   }
 
-  renderHeader() {
-    const editing = !Number.isNaN(this.selected_article);
+  renderCreatePostHeader({ language }: Partial<NullstackClientContext>) {
+    const { title, button } = translations.cms;
 
     return (
-      <div class="row space-between">
-        <div class="row gap-md">
-          {editing && (
-            <button
-              class="expand-button"
-              type="button"
-              onclick={this.handleResetSelection}
-            >
-              Back
-            </button>
-          )}
+      <header class="row space-between">
+        <h2>{title.new_post[language]}</h2>
 
-          <h2>{!editing ? 'New post' : 'Edit post'}</h2>
+        <div class="row">
+          <button class="expand-button">{button.create_post[language]}</button>
         </div>
-
-        <div class="row gap-md">
-          {!editing && <button class="expand-button">Create post</button>}
-
-          {editing && (
-            <>
-              <button class="expand-button">Edit post</button>
-
-              <button
-                type="button"
-                class="expand-button delete"
-                onclick={this.handleDeletePost}
-              >
-                Delete post
-              </button>
-            </>
-          )}
-        </div>
-      </div>
+      </header>
     );
   }
 
-  render() {
+  renderEditPostHeader({ language }: Partial<NullstackClientContext>) {
+    const { title, button } = translations.cms;
+
+    return (
+      <header class="row space-between">
+        <div class="row gap-md">
+          <button
+            class="expand-button"
+            type="button"
+            onclick={this.handleResetSelection}
+          >
+            {button.back[language]}
+          </button>
+
+          <h2>{title.edit_post[language]}</h2>
+        </div>
+
+        <div class="row gap-md">
+          <button class="expand-button">{button.save_changes[language]}</button>
+
+          <button
+            type="button"
+            class="expand-button delete"
+            onclick={this.handleDeletePost}
+          >
+            {button.delete_post[language]}
+          </button>
+        </div>
+      </header>
+    );
+  }
+
+  /* ---------- Render ---------- */
+  render({ language }: Props) {
+    const { inputs } = translations.cms;
+
     return (
       <main class="cms-page">
-        <Navbar />
+        <Navbar language={language} />
 
         <div class="content">
           <h1>Moureau.dev Blog CMS</h1>
@@ -294,9 +315,11 @@ export class CMS extends Nullstack<Props> {
                   : this.handleCreatePost
               }
             >
-              {this.renderHeader()}
+              {this.selected_article
+                ? this.renderEditPostHeader({})
+                : this.renderCreatePostHeader({})}
 
-              <FormInput label="Title" name="title">
+              <FormInput label={inputs.title[language]} name="title">
                 <input
                   name="title"
                   bind={this.title}
@@ -305,7 +328,10 @@ export class CMS extends Nullstack<Props> {
                 />
               </FormInput>
 
-              <FormInput label="Description" name="description">
+              <FormInput
+                label={inputs.description[language]}
+                name="description"
+              >
                 <input
                   name="description"
                   bind={this.description}
@@ -314,7 +340,7 @@ export class CMS extends Nullstack<Props> {
                 />
               </FormInput>
 
-              <FormInput label="Author" name="author">
+              <FormInput label={inputs.author[language]} name="author">
                 <input
                   name="author"
                   bind={this.author}
@@ -323,7 +349,7 @@ export class CMS extends Nullstack<Props> {
                 />
               </FormInput>
 
-              <FormInput label="Image" name="image">
+              <FormInput label={inputs.image[language]} name="image">
                 <input
                   name="image"
                   bind={this.image}
@@ -334,7 +360,7 @@ export class CMS extends Nullstack<Props> {
 
               <hr />
 
-              {this.renderLanguageSelector()}
+              {this.renderLanguageSelector({})}
 
               <HyperMd
                 onChange={content => (this.body = content)}

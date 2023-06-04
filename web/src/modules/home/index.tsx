@@ -51,9 +51,9 @@ export class Home extends Nullstack<Props> {
 
         <LibrariesSection language={language} />
 
-        <ContactSection language={language} />
-
         <RecentPosts language={language} />
+
+        <ContactSection language={language} />
 
         <Footer />
       </main>

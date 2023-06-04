@@ -1,31 +1,31 @@
-import { NullstackPlugin, NullstackPluginNode } from 'nullstack';
+import { NullstackPlugin } from 'nullstack';
 
-const fix_boolean = ({ attributes, children }: NullstackPluginNode) => {
-  for (const attribute in attributes) {
-    if (typeof attributes[attribute] === 'boolean') {
-      attributes[attribute] = String(attributes[attribute]);
-    }
-  }
+// const fix_boolean = ({ attributes, children }: NullstackPluginNode) => {
+//   for (const attribute in attributes) {
+//     if (typeof attributes[attribute] === 'boolean') {
+//       attributes[attribute] = String(attributes[attribute]);
+//     }
+//   }
 
-  for (const child of Array(children)) {
-    if (!child) continue;
+//   for (const child of Array(children)) {
+//     if (!child) continue;
 
-    const child_node = child as unknown as NullstackPluginNode;
+//     const child_node = child as unknown as NullstackPluginNode;
 
-    const { attributes: child_attributes } = child_node;
+//     const { attributes: child_attributes } = child_node;
 
-    if (child_attributes) fix_boolean(child_node);
-  }
-};
+//     if (child_attributes) fix_boolean(child_node);
+//   }
+// };
 
-const fix_boolean_plugin: NullstackPlugin = {
-  transform({ node }) {
-    fix_boolean(node);
-  },
-  load() {},
-  client: true,
-  server: true,
-};
+// const fix_boolean_plugin: NullstackPlugin = {
+//   transform({ node }) {
+//     fix_boolean(node);
+//   },
+//   load() {},
+//   client: true,
+//   server: true,
+// };
 
 const not_found_page_plugin: NullstackPlugin = {
   transform({ instances, router: { url }, page }) {
@@ -55,7 +55,7 @@ const not_found_page_plugin: NullstackPlugin = {
       page.status = 404;
     }
   },
-  load() {},
+  load: () => null,
   client: true,
   server: true,
 };

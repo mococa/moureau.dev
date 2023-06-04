@@ -20,7 +20,7 @@ import './styles.css';
 interface Props {
   language: Language;
 }
-export class Navbar extends Nullstack {
+export class Navbar extends Nullstack<Props> {
   /* ---------- Render ---------- */
   render({ language, router }: NullstackClientContext<Props>) {
     const { links } = translations.navbar;
@@ -35,15 +35,24 @@ export class Navbar extends Nullstack {
           </a>
 
           <ul class="navbar-links" role="tablist">
-            <li role="tab" aria-selected={router.path === '/'}>
+            <li
+              role="tab"
+              aria-selected={router.path === '/' ? 'true' : 'false'}
+            >
               <a href="/">{links.home[language]}</a>
             </li>
 
-            <li role="tab" aria-selected={router.path === '/about'}>
+            <li
+              role="tab"
+              aria-selected={router.path === '/about' ? 'true' : 'false'}
+            >
               <a href="/about">{links.about[language]}</a>
             </li>
 
-            <li role="tab" aria-selected={router.path === '/blog'}>
+            <li
+              role="tab"
+              aria-selected={router.path.startsWith('/blog') ? 'true' : 'false'}
+            >
               <a href="/blog">Blog</a>
             </li>
 

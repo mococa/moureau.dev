@@ -9,6 +9,9 @@ import { Link } from '_common/components/Link';
 import { SectionTitle } from '_common/components/SectionTitle';
 import { ShownDate } from '_common/components/ShownDate';
 
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
+
 /* ---------- Styles ---------- */
 import './styles.css';
 
@@ -19,27 +22,34 @@ interface Props {
 
 export class RecentPosts extends Nullstack<Props> {
   /* ---------- Renderers ---------- */
-  renderPost({ id, created_at, title }: Models.BlogPost) {
+  renderPost({ id, created_at, title, language }: Models.BlogPost) {
     return (
       <a class="recent-post" href={`/blog/post/${id}`}>
-        <ShownDate date={new Date(created_at)} label="Articles" />
+        <ShownDate
+          date={new Date(created_at)}
+          label="Articles"
+          language={language}
+        />
 
         <h3>{title}</h3>
       </a>
     );
   }
 
+  /* ---------- Render ---------- */
   render({ settings, language }: NullstackClientContext<Props>) {
+    const { title, button } = translations.latest_articles;
+
     return (
       <section id="blog">
         <div class="row content">
           <div class="column">
             <SectionTitle title="Blog" href="#blog" />
 
-            <h3>Check out my latest articles and tutorials</h3>
+            <h3>{title[language]}</h3>
 
             <Link href="/blog" size="large">
-              Browse all articles
+              {button[language]}
             </Link>
           </div>
 
@@ -50,7 +60,7 @@ export class RecentPosts extends Nullstack<Props> {
               )
               .slice(0, 3)
               .map(post => (
-                <li>{this.renderPost(post)}</li>
+                <li>{this.renderPost({ ...post, language })}</li>
               ))}
           </ul>
         </div>

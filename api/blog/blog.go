@@ -121,8 +121,9 @@ func (b *Blog) UpdatePost(id int, post types.ManagePost) (types.BlogPost, error)
 			language = $3,
 			body = $4,
 			image = $5,
-			description = $6
-		WHERE id = $7
+			description = $6,
+			updated_at = $7
+		WHERE id = $8
 		RETURNING *
 	`
 	var updatedPost types.BlogPost
@@ -130,7 +131,7 @@ func (b *Blog) UpdatePost(id int, post types.ManagePost) (types.BlogPost, error)
 		post.Title, post.Author,
 		post.Language, post.Body,
 		post.Image, post.Description,
-		id,
+		time.Now(), id,
 	).Scan(
 		&updatedPost.ID, &updatedPost.Title,
 		&updatedPost.Author, &updatedPost.Language,

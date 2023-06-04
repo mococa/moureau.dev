@@ -21,8 +21,8 @@ const job = scheduleJob(rule, async () => {
 
     context.settings.blog_posts = (data.posts || [])
       .map(setup_post)
-      .sort(({ created_at }, next_post) =>
-        next_post.created_at.localeCompare(created_at),
+      .sort(({ updated_at }, next_post) =>
+        next_post.updated_at.localeCompare(updated_at),
       );
   } catch (error) {
     console.error({ error });

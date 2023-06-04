@@ -1,9 +1,5 @@
 /* ---------- External ---------- */
-import Nullstack, {
-  BaseNullstackClientContext,
-  NullstackClientContext,
-  NullstackServerContext,
-} from 'nullstack';
+import Nullstack, { NullstackClientContext } from 'nullstack';
 
 /* ---------- Modules ---------- */
 import { NotFound } from '_modules/404';
@@ -26,24 +22,16 @@ interface Props {
 
 export class Post extends Nullstack {
   /* ---------- Proxies ---------- */
-  post: Models.BlogPost = null;
-
-  /* ---------- Server Functions ---------- */
-  static async GetPost({
-    post_id,
-    settings,
-  }: Partial<NullstackServerContext<{ post_id: string }>>) {
-    const posts = settings.blog_posts || [];
-
-    return posts.find(post => post.id === Number(post_id));
-  }
+  post: Models.BlogPost;
 
   /* ---------- Life cycle ---------- */
-  async initiate({ params, page, router }: NullstackClientContext) {
+  async initiate({ params, page, settings }: NullstackClientContext) {
     page.not_found = false;
     const post_id = String(params.id);
 
-    const post = await Post.GetPost({ post_id });
+    const posts = settings.blog_posts || [];
+
+    const post = posts.find(post => post.id === Number(post_id));
 
     if (!post) {
       page.not_found = true;
@@ -51,8 +39,10 @@ export class Post extends Nullstack {
     }
 
     this.post = post;
+
     page.title = post.title;
     page.description = post.description;
+    page.image = post.image;
   }
 
   render({ page, language }: NullstackClientContext<Props>) {
@@ -62,7 +52,11 @@ export class Post extends Nullstack {
 
     return (
       <main class="post-page">
-        <Navbar />
+        <head>
+          <meta name="twitter:image" content={this.post.image} />
+        </head>
+
+        <Navbar language={language} />
 
         <header class="content column">
           <div>
@@ -86,12 +80,16 @@ export class Post extends Nullstack {
                   date={new Date(this.post?.created_at)}
                   label="Articles"
                   href="/blog"
+                  language={language}
                 />
               )}
             </span>
           </header>
 
-          <main class="content column" html={this.post?.content} />
+          <main
+            class="content column"
+            html={this.post?.content?.replace(/\\\//g, '/')}
+          />
         </article>
 
         <Footer />

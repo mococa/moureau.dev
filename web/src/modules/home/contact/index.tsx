@@ -27,9 +27,9 @@ interface MessageForm {
 }
 export class ContactSection extends Nullstack<Props> {
   /* ---------- Proxies ---------- */
-  name: string = '';
-  email: string = '';
-  body: string = '';
+  name: string;
+  email: string;
+  body: string;
 
   /* ---------- Server functions ---------- */
   static async NotifyContact({

@@ -7,10 +7,11 @@ import Nullstack, {
 import cookie from 'cookie';
 
 /* ---------- Modules ---------- */
+import { Blog } from '_modules/blog';
+import { CMS } from '_modules/cms';
 import { Home } from '_modules/home';
 import { NotFound } from '_modules/404';
 import { Post } from '_modules/post';
-import { CMS } from '_modules/cms';
 
 /* ---------- Translations ---------- */
 import { get_language_from_locale } from '_utils/translations';
@@ -84,7 +85,7 @@ class Application extends Nullstack {
   hydrate(ctx) {
     ctx.handleChangeLocale = this.handleChangeLocale;
 
-    document.documentElement.lang = this.locale;
+    // document.documentElement.lang = this.locale;
   }
 
   /* ---------- Render ---------- */
@@ -92,25 +93,28 @@ class Application extends Nullstack {
     const language = get_language_from_locale(page.locale || this.locale);
 
     return (
-      <body>
-        <Head />
+      <html lang={page.locale || this.locale}>
+        <body>
+          <Head />
 
-        <hello>
-          Greetings, inspector! If you wanna see more, check my Github: mococa
-          😏
-        </hello>
+          <hello>
+            Greetings, inspector! If you wanna see more, check my Github: mococa
+            😏
+          </hello>
 
-        <Home route="/" language={language} />
+          <Home route="/" language={language} />
 
-        <Post route="/blog/post/:id" language={language} />
+          <CMS route="/cms" language={language} />
 
-        <CMS route="/cms" language={language} />
-        <CMS route="/cms/post/:id" language={language} />
+          <Blog route="/blog" language={language} />
 
-        {(page.not_found || page.status === 404) && (
-          <NotFound language={language} route="*" />
-        )}
-      </body>
+          <Post route="/blog/post/:id" language={language} />
+
+          {(page.not_found || page.status === 404) && (
+            <NotFound language={language} route="*" />
+          )}
+        </body>
+      </html>
     );
   }
 }

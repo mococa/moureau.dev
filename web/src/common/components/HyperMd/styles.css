@@ -2,7 +2,7 @@
   opacity: 0;
 }
 
-.CodeMirror {
+.cm-s-vscode-dark.CodeMirror {
   height: 100%;
 
   padding: 16px;

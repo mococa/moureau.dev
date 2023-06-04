@@ -9,7 +9,11 @@ import './styles.css';
 interface Props {
   onChange: (md: string) => void;
   defaultValue?: string;
-  getEditor: (editor: any) => void;
+  getEditor: (editor: {
+    getDoc(): {
+      setValue(value: string);
+    };
+  }) => void;
 }
 
 export class HyperMd extends Nullstack<Props> {
