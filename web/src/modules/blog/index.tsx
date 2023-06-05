@@ -103,10 +103,11 @@ export class Blog extends Nullstack<Props> {
           return format_relative_locale.other_year;
         }
 
-        const formatting = format_relative_locale[token]
+        const formatting = format_relative_locale[token];
+
+        return (formatting || format_relative_locale.other || '')
           .replace("'Today'", date_translations.today[lang])
           .replace("'Yesterday'", date_translations.yesterday[lang]);
-        return formatting || format_relative_locale.other;
       },
     });
 
