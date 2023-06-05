@@ -74,10 +74,10 @@ const locale = (lang: Language) => ({
       },
     };
 
-    const formatting = format_relative_locale[token]
+    const formatting = format_relative_locale[token];
+
+    return (formatting || format_relative_locale.other || '')
       .replace("'Today'", translations.today[lang])
       .replace("'Yesterday'", translations.yesterday[lang]);
-
-    return formatting || format_relative_locale.other;
   },
 });
