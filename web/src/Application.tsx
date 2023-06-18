@@ -55,7 +55,7 @@ class Application extends Nullstack {
   static async getLocale({ request }: Partial<NullstackServerContext>) {
     const languages = request.headers?.['accept-language'] || 'en-US,en';
 
-    const browser_language = ['en', 'pt', 'fr', 'es'].find(lang =>
+    const browser_language = ['en-US', 'pt-BR', 'fr-FR', 'es-ES'].find(lang =>
       lang.includes(languages.split(',')[0].split('-')[0]),
     );
 
