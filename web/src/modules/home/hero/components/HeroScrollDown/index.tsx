@@ -1,4 +1,4 @@
-import "./styles.css";
+import './styles.css';
 
 export const HeroScrollDown = () => (
   <a class="hero-scroll-down" href="#about-me">

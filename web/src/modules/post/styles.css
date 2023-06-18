@@ -1,0 +1,118 @@
+.post-page .content {
+  display: flex;
+  flex-flow: column;
+  gap: 24px;
+
+  padding: 0;
+
+  max-width: 1100px;
+
+  margin-top: 24px;
+  margin-bottom: 72px;
+}
+
+.post-page .content h1 {
+  font-size: 2.5rem;
+
+  max-width: 24ch;
+}
+
+.post-page header.content div {
+  width: fit-content;
+  margin: 40px auto 44px;
+}
+
+.post-page header.content span {
+  display: block;
+
+  max-width: 670px;
+
+  font-size: 1.25rem;
+}
+
+.post-page header.content h1 {
+  font-size: 4rem;
+  max-width: 18ch;
+}
+
+.post-page p > img {
+  width: 100%;
+}
+
+.post-page > header.content {
+  gap: 4px;
+
+  padding: 32px;
+  margin-bottom: 48px;
+
+  border-radius: 8px;
+
+  background-color: rgba(45, 52, 63, 0.4);
+}
+
+.post-page > header.content > img {
+  margin-top: 24px;
+}
+
+.post-page article.content {
+  margin: 0 auto;
+}
+
+article.content .row.space-between {
+  align-items: center;
+
+  padding-bottom: 42px;
+
+  border-bottom: 4px solid rgb(45 52 63);
+}
+
+img.content {
+  width: 100%;
+
+  border-radius: 8px;
+}
+
+main.content {
+  width: 100%;
+}
+
+.post-page blockquote {
+  padding: 4px;
+  padding-left: 12px;
+
+  border-left: 4px solid;
+}
+
+@media (max-width: 500px) {
+  .post-page .content {
+    margin: 16px;
+  }
+
+  header.content.column > div {
+    margin-top: 24px;
+  }
+
+  .post-page header.content.column h1 {
+    font-size: 2.5rem;
+  }
+
+  .post-page img.content {
+    width: fill-available;
+    width: -webkit-fill-available;
+  }
+
+  .post-page article.content {
+    padding: 0 16px;
+  }
+
+  .post-page > article > header {
+    border-width: 1px;
+  }
+
+  .post-page main.content {
+    margin: 0;
+    padding: 0 0 72px;
+
+    width: 100%;
+  }
+}

@@ -7,7 +7,11 @@ import Nullstack, {
 import cookie from 'cookie';
 
 /* ---------- Modules ---------- */
+import { Blog } from '_modules/blog';
+import { CMS } from '_modules/cms';
 import { Home } from '_modules/home';
+import { NotFound } from '_modules/404';
+import { Post } from '_modules/post';
 
 /* ---------- Translations ---------- */
 import { get_language_from_locale } from '_utils/translations';
@@ -28,7 +32,7 @@ class Application extends Nullstack {
       <head>
         <meta
           name="keywords"
-          content="Luiz Felipe Moureau, web, developer, portfolio, blog, resume, contact, contact me, moureau, mococa, luizfelipesmoureau"
+          content="Luiz Felipe Moureau, web, developer, portfolio, blog, resume, contact, contact me, moureau, luiz, luiz moureau, mococa, luizfelipesmoureau"
         />
 
         <meta name="theme-color" content="#1b1f24" />
@@ -48,58 +52,77 @@ class Application extends Nullstack {
   }
 
   /* ---------- Server functions ---------- */
-  static async getLocale(context: NullstackServerContext) {
-    const cookies = context.request.headers.cookie;
-    const { locale } = cookie.parse(cookies || '');
+  static async getLocale({ request }: Partial<NullstackServerContext>) {
+    const languages = request.headers?.['accept-language'] || 'en-US,en';
+
+    const browser_language = ['en', 'pt', 'fr', 'es'].find(lang =>
+      lang.includes(languages.split(',')[0].split('-')[0]),
+    );
+
+    const cookies = request.headers?.cookie;
+
+    const { locale = browser_language } = cookie.parse(cookies || '') as Record<
+      string,
+      string
+    >;
 
     return { locale };
   }
 
   /* ---------- Handlers ---------- */
-  handleChangeLocale({ locale }: { locale: string }) {
+  handleChangeLocale({
+    page,
+    locale,
+  }: NullstackClientContext<{ locale: string }>) {
     this.locale = locale;
 
-    document.documentElement.lang = locale;
+    page.locale = locale;
   }
 
   /* ---------- Life cycle ---------- */
-  async prepare() {
-    const { locale } = await Application.getLocale(
-      {} as NullstackServerContext,
-    );
+  async initiate({ page }: NullstackClientContext) {
+    const { locale } = await Application.getLocale({});
 
     this.locale = locale || 'en-US';
-  }
 
-  async initiate({ page }: NullstackClientContext) {
-    page.locale = this.locale || 'en-US';
+    page.locale = this.locale;
     page.title = 'Moureau - Fullstack Developer';
     page.description =
       "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
     page.image = '/image-banner.png';
   }
 
-  hydrate(ctx) {
+  hydrate(ctx: NullstackClientContext) {
     ctx.handleChangeLocale = this.handleChangeLocale;
-
-    document.documentElement.lang = this.locale;
   }
 
   /* ---------- Render ---------- */
-  render() {
-    const language = get_language_from_locale(this.locale);
+  render({ page }: NullstackClientContext) {
+    const language = get_language_from_locale(page.locale || this.locale);
 
     return (
-      <body>
-        <Head />
+      <html lang={page.locale || this.locale}>
+        <body>
+          <Head />
 
-        <hello>
-          Greetings, inspector! If you wanna see more, check my Github: mococa
-          😏
-        </hello>
+          <hello>
+            Greetings, inspector! If you wanna see more, check my Github: mococa
+            😏
+          </hello>
 
-        <Home route="/" language={language} />
-      </body>
+          <Home route="/" language={language} />
+
+          <Blog route="/blog" language={language} />
+
+          <Post route="/blog/post/:id" language={language} />
+
+          <CMS route="/cms" language={language} />
+
+          {(page.not_found || page.status === 404) && (
+            <NotFound language={language} route="*" />
+          )}
+        </body>
+      </html>
     );
   }
 }

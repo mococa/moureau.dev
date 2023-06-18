@@ -34,7 +34,9 @@ export const HeroSection = ({ language }: Props) => {
 
           <span>
             {subtitle[language]}
+
             <br />
+
             {learner[language]}
           </span>
 

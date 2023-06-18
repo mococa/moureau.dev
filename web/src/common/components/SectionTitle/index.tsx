@@ -1,5 +1,5 @@
 /* ---------- Styles ---------- */
-import "./styles.css";
+import './styles.css';
 
 /* ---------- Interfaces ---------- */
 interface Props {

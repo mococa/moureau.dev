@@ -29,8 +29,9 @@ export class LibrariesSection extends Nullstack<Props> {
     this.expanded = !this.expanded;
   }
 
+  /* ---------- Render ---------- */
   render({ language }: Props) {
-    const { name, title, see_all, see_more } = translations.libraries;
+    const { name, title, see_all, see_more, see_less } = translations.libraries;
 
     return (
       <section id="libraries">
@@ -59,18 +60,23 @@ export class LibrariesSection extends Nullstack<Props> {
             <div
               class="library-cards-container"
               role="list"
-              aria-expanded={this.expanded}
+              aria-expanded={this.expanded ? 'true' : 'false'}
             >
               {libraries.map(library => (
                 <Card {...library} role="listitem" />
               ))}
             </div>
 
-            <div class="row end-aligned">
-              <button class="expand-button" onclick={this.handleToggleExpanded}>
-                {this.expanded ? 'Show less' : see_more[language]}
-              </button>
-            </div>
+            {libraries.length > 3 && (
+              <div class="row end-aligned">
+                <button
+                  class="expand-button"
+                  onclick={this.handleToggleExpanded}
+                >
+                  {this.expanded ? see_less[language] : see_more[language]}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>

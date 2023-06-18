@@ -8,7 +8,7 @@ interface Props {
   href?: string;
   children?: JSX.Element;
   active?: Booleanish;
-  size?: 'small';
+  size?: 'small' | 'large';
   target?: HTMLAttributeAnchorTarget;
 }
 
@@ -31,7 +31,6 @@ export const Link = ({ children, href, active, size, target }: Props) =>
       href={href}
       class={`link uppercase ${size || ''}`}
       aria-label="Link button"
-      target={target}
     >
       {children}
 

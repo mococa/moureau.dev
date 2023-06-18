@@ -1,4 +1,4 @@
-import { Models } from "_@types";
+import { Models } from '_@types';
 
 export const skills: Models.Skill[] = [
   { name: 'Git', src: 'git.png', href: 'https://git-scm.com/', padding: 0 },

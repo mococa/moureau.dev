@@ -20,8 +20,21 @@ declare type NullstackClientContext<T> = ClientContext<T> & {
 
 export class LanguageSelector extends Nullstack<Props> {
   /* ---------- Proxies ---------- */
-  menu_open: boolean = false;
-  label: string = 'Select a language';
+  menu_open: boolean;
+  label: string;
+
+  /* ---------- Life cycles ---------- */
+  hydrate({ page }: NullstackClientContext<Props>) {
+    this.label = get_label({
+      language: (page.locale?.split('-')[0] as Props['language']) || 'en',
+    });
+
+    document.body.addEventListener('keydown', this._handleCloseMenu);
+  }
+
+  terminate() {
+    document.body.removeEventListener('keydown', this._handleCloseMenu);
+  }
 
   /* ---------- Handlers ---------- */
   _handleCloseMenu = (event: KeyboardEvent) => {
@@ -57,7 +70,7 @@ export class LanguageSelector extends Nullstack<Props> {
         {(['pt', 'en', 'fr', 'es'] as const).map(language => (
           <li
             onmouseover={() => (this.label = get_label({ language }))}
-            aria-selected={language === chosen_language}
+            aria-selected={language === chosen_language ? 'true' : 'false'}
           >
             <a
               onclick={() =>
@@ -75,19 +88,6 @@ export class LanguageSelector extends Nullstack<Props> {
         ))}
       </ul>
     );
-  }
-
-  /* ---------- Life cycles ---------- */
-  hydrate({ page }: NullstackClientContext<Props>) {
-    this.label = get_label({
-      language: (page.locale.split('-')[0] as Props['language']) || 'en',
-    });
-
-    document.body.addEventListener('keydown', this._handleCloseMenu);
-  }
-
-  terminate() {
-    document.body.removeEventListener('keydown', this._handleCloseMenu);
   }
 
   /* ---------- Render ---------- */

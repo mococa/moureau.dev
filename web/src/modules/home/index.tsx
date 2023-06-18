@@ -1,11 +1,9 @@
-import Nullstack, {
-  NullstackClientContext,
-  NullstackPage,
-  NullstackServerContext,
-} from 'nullstack';
+/* ---------- External ---------- */
+import Nullstack, { NullstackClientContext } from 'nullstack';
 
 /* ---------- Common Components ---------- */
 import { Navbar } from '_common/components/Navbar';
+import { Footer } from '_common/components/Footer';
 
 /* ---------- Module Templates ---------- */
 import { HeroSection } from '_modules/home/hero';
@@ -13,6 +11,8 @@ import { AboutMeSection } from '_modules/home/about-me';
 import { SkillSection } from '_modules/home/skills';
 import { PortfolioSection } from '_modules/home/portfolio';
 import { LibrariesSection } from '_modules/home/libraries';
+import { ContactSection } from '_modules/home/contact';
+import { RecentPosts } from '_modules/home/recent-posts';
 
 /* ---------- Constants ---------- */
 import { skills } from '_utils/constants/skills';
@@ -23,12 +23,20 @@ import { Language } from '_@types';
 /* ---------- Styles ---------- */
 import './styles.css';
 
+/* ---------- Interfaces ---------- */
 interface Props {
   language: Language;
 }
 
 export class Home extends Nullstack<Props> {
-  render({ language }: NullstackClientContext<Props>) {
+  /* ---------- Life cycle ---------- */
+  initiate({ page }: NullstackClientContext<Props>) {
+    page.title = 'Moureau - Fullstack Developer';
+    page.description =
+      "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
+  }
+
+  render({ language }: NullstackClientContext) {
     return (
       <main>
         <Navbar language={language} />
@@ -42,6 +50,12 @@ export class Home extends Nullstack<Props> {
         <PortfolioSection language={language} />
 
         <LibrariesSection language={language} />
+
+        <RecentPosts language={language} />
+
+        <ContactSection language={language} />
+
+        <Footer />
       </main>
     );
   }
