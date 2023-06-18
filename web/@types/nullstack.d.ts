@@ -13,6 +13,13 @@ declare module 'nullstack' {
 
   export interface BaseNullstackClientContext {
     language: Language;
+    handleChangeLocale({
+      page,
+      locale,
+    }: {
+      locale: string;
+      page: NullstackPage;
+    }): void;
   }
   export interface BaseNullstackServerContext {
     services: typeof services;

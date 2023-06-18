@@ -323,7 +323,7 @@ export class CMS extends Nullstack<Props> {
                 <input
                   name="title"
                   bind={this.title}
-                  data-value={this.title}
+                  data-value={this.title || ''}
                   required={true}
                 />
               </FormInput>
@@ -335,7 +335,7 @@ export class CMS extends Nullstack<Props> {
                 <input
                   name="description"
                   bind={this.description}
-                  data-value={this.description}
+                  data-value={this.description || ''}
                   required={true}
                 />
               </FormInput>
@@ -344,7 +344,7 @@ export class CMS extends Nullstack<Props> {
                 <input
                   name="author"
                   bind={this.author}
-                  data-value={this.author}
+                  data-value={this.author || ''}
                   required={true}
                 />
               </FormInput>
@@ -353,7 +353,7 @@ export class CMS extends Nullstack<Props> {
                 <input
                   name="image"
                   bind={this.image}
-                  data-value={this.image}
+                  data-value={this.image || ''}
                   required={true}
                 />
               </FormInput>

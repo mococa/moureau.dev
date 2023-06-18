@@ -40,7 +40,7 @@ export class Post extends Nullstack {
 
     this.post = post;
 
-    page.title = post.title;
+    page.title = `Moureau - ${post.title}`;
     page.description = post.description;
     page.image = post.image;
   }

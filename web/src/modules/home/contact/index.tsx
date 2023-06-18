@@ -72,7 +72,7 @@ export class ContactSection extends Nullstack<Props> {
             <FormInput name="name" label={labels.name[language]}>
               <input
                 name="name"
-                data-value={this.name}
+                data-value={this.name || ''}
                 bind={this.name}
                 required
               />
@@ -82,7 +82,7 @@ export class ContactSection extends Nullstack<Props> {
               <input
                 name="email"
                 type="email"
-                data-value={this.email}
+                data-value={this.email || ''}
                 bind={this.email}
                 required
               />
@@ -91,7 +91,7 @@ export class ContactSection extends Nullstack<Props> {
             <FormInput name="body" label={labels.description[language]}>
               <textarea
                 name="body"
-                data-value={this.body}
+                data-value={this.body || ''}
                 bind={this.body}
                 rows={5}
                 required
