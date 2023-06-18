@@ -32,7 +32,7 @@ class Application extends Nullstack {
       <head>
         <meta
           name="keywords"
-          content="Luiz Felipe Moureau, web, developer, portfolio, blog, resume, contact, contact me, moureau, mococa, luizfelipesmoureau"
+          content="Luiz Felipe Moureau, web, developer, portfolio, blog, resume, contact, contact me, moureau, luiz, luiz moureau, mococa, luizfelipesmoureau"
         />
 
         <meta name="theme-color" content="#1b1f24" />
@@ -53,8 +53,18 @@ class Application extends Nullstack {
 
   /* ---------- Server functions ---------- */
   static async getLocale({ request }: Partial<NullstackServerContext>) {
+    const browser_language = ['en', 'pt', 'fr', 'es'].find(lang =>
+      lang.includes(
+        request.headers['accept-language'].split(',')[0].split('-')[0],
+      ),
+    );
+
     const cookies = request.headers?.cookie;
-    const { locale } = cookie.parse(cookies || '');
+
+    const { locale = browser_language } = cookie.parse(cookies || '') as Record<
+      string,
+      string
+    >;
 
     return { locale };
   }
@@ -82,10 +92,8 @@ class Application extends Nullstack {
     page.image = '/image-banner.png';
   }
 
-  hydrate(ctx) {
+  hydrate(ctx: NullstackClientContext) {
     ctx.handleChangeLocale = this.handleChangeLocale;
-
-    // document.documentElement.lang = this.locale;
   }
 
   /* ---------- Render ---------- */
@@ -104,11 +112,11 @@ class Application extends Nullstack {
 
           <Home route="/" language={language} />
 
-          <CMS route="/cms" language={language} />
-
           <Blog route="/blog" language={language} />
 
           <Post route="/blog/post/:id" language={language} />
+
+          <CMS route="/cms" language={language} />
 
           {(page.not_found || page.status === 404) && (
             <NotFound language={language} route="*" />
