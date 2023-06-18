@@ -188,7 +188,7 @@ export const translations = {
     title: {
       en: ['Explore my latest ', 'widgets and libraries ', 'on Github'],
       pt: ['Explore os meus últimos ', 'widgets e bibliotecas ', 'no Github'],
-      fr: ['Explore mes derniers ', 'widgets et bibliothéques ', 'sur Github'],
+      fr: ['Explore mes derniers ', 'widgets et bibliothèques ', 'sur Github'],
       es: ['Explore mis últimos ', 'widgets y bibliotecas ', 'en Github'],
     },
     see_all: {
