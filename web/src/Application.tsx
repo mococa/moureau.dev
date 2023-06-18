@@ -53,10 +53,10 @@ class Application extends Nullstack {
 
   /* ---------- Server functions ---------- */
   static async getLocale({ request }: Partial<NullstackServerContext>) {
+    const languages = request.headers?.['accept-language'] || 'en-US,en';
+
     const browser_language = ['en', 'pt', 'fr', 'es'].find(lang =>
-      lang.includes(
-        request.headers['accept-language'].split(',')[0].split('-')[0],
-      ),
+      lang.includes(languages.split(',')[0].split('-')[0]),
     );
 
     const cookies = request.headers?.cookie;
