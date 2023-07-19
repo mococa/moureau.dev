@@ -54,11 +54,50 @@ export class Post extends Nullstack {
       <main class="post-page">
         <head>
           <meta name="twitter:image" content={this.post.image} />
+          <meta name="twitter:label1" content="Written by" />
+          <meta name="twitter:data1" content={this.post.author} />
+
+          <meta name="twitter:label2" content="Est. reading time" />
+          <meta
+            name="twitter:data2"
+            content={`${Math.ceil(
+              this.post.body.trim().split(/\s+/).length / 225,
+            )} minutes`}
+          />
+
+          <meta name="article:author" content={this.post.author} />
+          <meta name="article:published_time" content={this.post.created_at} />
+          <meta name="article:modified_time" content={this.post.updated_at} />
         </head>
 
         <Navbar language={language} />
 
-        <header class="content column">
+        <header class="post-details row space-between">
+          <h2>
+            <img
+              height={32}
+              width={32}
+              alt="author avatar"
+              src="https://avatars.githubusercontent.com/u/13316723?v=4"
+            />
+
+            {this.post?.author}
+          </h2>
+
+          <span>
+            {this.post?.created_at && (
+              <ShownDate
+                date={new Date(this.post?.created_at)}
+                label="Articles"
+                href="/blog"
+                language={language}
+                full_date
+              />
+            )}
+          </span>
+        </header>
+
+        <header class="post-title-description content column">
           <div>
             <h1>{this.post?.title}</h1>
 
@@ -67,25 +106,16 @@ export class Post extends Nullstack {
         </header>
 
         {this.post?.image && (
-          <img class="content" src={this.post?.image} alt={this.post?.title} />
+          <img
+            class="content"
+            src={this.post?.image}
+            alt={this.post?.title}
+            width={900}
+            height={450}
+          />
         )}
 
         <article class="content">
-          <header class="row space-between">
-            <h2>{this.post?.author}</h2>
-
-            <span>
-              {this.post?.created_at && (
-                <ShownDate
-                  date={new Date(this.post?.created_at)}
-                  label="Articles"
-                  href="/blog"
-                  language={language}
-                />
-              )}
-            </span>
-          </header>
-
           <main
             class="content column"
             html={this.post?.content?.replace(/\\\//g, '/')}

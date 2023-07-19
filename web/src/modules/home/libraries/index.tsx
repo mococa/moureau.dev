@@ -63,7 +63,7 @@ export class LibrariesSection extends Nullstack<Props> {
               aria-expanded={this.expanded ? 'true' : 'false'}
             >
               {libraries.map(library => (
-                <Card {...library} role="listitem" />
+                <Card {...library} role="listitem" target="_blank" />
               ))}
             </div>
 

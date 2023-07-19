@@ -1,6 +1,7 @@
 :root {
   --main-bg: #1b1f24;
-  --accent: #0bb09d;
+  --accent-rgb: 11, 176, 157;
+  --accent: rgb(var(--accent-rgb));
   --main-ff: 'Spacegrotesk', Arial;
   --section-title-fs: 2.75rem;
   --section-subtitle-fs: 1.25rem;
@@ -36,6 +37,12 @@ body {
   background-color: var(--main-bg);
 
   color: #c3cad5;
+}
+
+body ::selection {
+  color: white;
+
+  background-color: rgba(var(--accent-rgb), 44%);
 }
 
 a {

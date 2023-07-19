@@ -1,6 +1,6 @@
 /* ---------- External ---------- */
 import { formatRelative } from 'date-fns';
-import { enUS as en, fr, es, ptBR as pt } from 'date-fns/esm/locale';
+import { ptBR as pt, enUS as en, fr, es } from 'date-fns/locale';
 
 /* ---------- Types ---------- */
 import { Language } from '_@types';
@@ -14,13 +14,20 @@ interface Props {
   label: string;
   href?: string;
   language: Language;
+  full_date?: boolean;
 }
 
-export const ShownDate = ({ date, href, label, language }: Props) => (
+export const ShownDate = ({
+  date,
+  href,
+  label,
+  language,
+  full_date,
+}: Props) => (
   <div class="cool-date">
     <b title={date.toLocaleString()}>
       {formatRelative(date, new Date(), {
-        locale: locale(language),
+        locale: locale(language, full_date),
       })}
     </b>
 
@@ -36,12 +43,14 @@ export const ShownDate = ({ date, href, label, language }: Props) => (
   </div>
 );
 
-const format_relative_locale: Record<string, string> = {
+const format_relative_locale = (
+  full_date?: boolean,
+): Record<string, string> => ({
   yesterday: "'Yesterday'", // Yesterday
   today: "'Today'", // Today
-  other: 'dd/MM', // 12/02
+  other: full_date ? 'PPPp' : 'dd/MM', // 12/02
   other_year: 'dd/MM/yyyy', // 12/02/2001
-};
+});
 
 const locales = {
   en,
@@ -50,13 +59,13 @@ const locales = {
   es,
 };
 
-const locale = (lang: Language) => ({
+const locale = (lang: Language, full_date?: boolean) => ({
   ...locales[lang],
   formatRelative: (token: string, string_date: string) => {
     const date = new Date(string_date);
 
     if (date.getFullYear() !== new Date().getFullYear()) {
-      return format_relative_locale.other_year;
+      return format_relative_locale(full_date).other_year;
     }
 
     const translations = {
@@ -76,7 +85,7 @@ const locale = (lang: Language) => ({
 
     const formatting = format_relative_locale[token];
 
-    return (formatting || format_relative_locale.other || '')
+    return (formatting || format_relative_locale(full_date).other || '')
       .replace("'Today'", translations.today[lang])
       .replace("'Yesterday'", translations.yesterday[lang]);
   },

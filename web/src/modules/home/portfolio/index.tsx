@@ -40,6 +40,7 @@ export const PortfolioSection = ({ language }: Props) => {
                   description={description}
                   url={url}
                   image={image}
+                  target="_blank"
                 />
               ))}
           </div>
@@ -53,6 +54,7 @@ export const PortfolioSection = ({ language }: Props) => {
                   description={description}
                   url={url}
                   image={image}
+                  target="_blank"
                 />
               ))}
           </div>
