@@ -37,7 +37,7 @@ export class Blog extends Nullstack<Props> {
   }: Partial<NullstackClientContext<Props>>) {
     return (
       <div class="blog-posts">
-        {settings.blog_posts
+        {(settings.blog_posts || [])
           .filter(post => post.language === language)
           .map(post => (
             <Card
@@ -47,7 +47,6 @@ export class Blog extends Nullstack<Props> {
               }`}
               url={`/blog/post/${post.id}`}
               image={post.image}
-              target="_self"
               label="Read more"
             />
           ))}
@@ -59,7 +58,7 @@ export class Blog extends Nullstack<Props> {
     settings,
     language,
   }: Partial<NullstackClientContext<Props>>) {
-    const lastest_post = settings.blog_posts
+    const lastest_post = (settings.blog_posts || [])
       .filter(post => post.language === language)
       .at(0);
 

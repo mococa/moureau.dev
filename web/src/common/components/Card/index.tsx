@@ -21,7 +21,7 @@ interface Props {
 export class Card extends Nullstack<Props> {
   render({ description, title, url, image, role, target, label }: Props) {
     return (
-      <a role={role} class="card" target={target || '_blank'} href={url}>
+      <a role={role} class="card" target={target} href={url}>
         <div class="background">
           {image ? (
             <img src={image} alt={title} height={150} width={150} />
