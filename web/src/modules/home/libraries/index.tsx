@@ -87,42 +87,47 @@ export class LibrariesSection extends Nullstack<Props> {
 /* ---------- Constants ---------- */
 const libraries = [
   {
-    title: 'React Guide Hook',
-    description: 'A React hook to build onboarding guides',
-    url: 'https://github.com/mococa/react-guide-hook',
-    image: '/img/libs/clippy.png',
+    title: 'Auth Cookie Storage',
+    description:
+      'A cookie helper for authentication with id, access and refresh tokens, such as cognito.',
+    url: 'https://github.com/mococa/auth-cookie-storage',
+    image: '/img/libs/auth-cookie-storage.png',
   },
 
   {
-    title: 'Mococa Toastr',
-    description: 'A toast notification library for React',
-    url: 'https://github.com/mococa/mococa-toastr',
-    image: '/img/libs/mococa-toastr.png',
+    title: 'Nullstack Serverless',
+    description:
+      'A CDK construct to host an entire Nullstack app on AWS and its services.',
+    url: 'https://github.com/mococa/nullstack-serverless',
+    image: '/img/libs/nullstack-serverless.png',
   },
 
   {
     title: 'Go Array',
-    description: 'A generic Golang slice helper library',
+    description:
+      'A generic Golang slice helper library for filtering, pushing, iterating and more.',
     url: 'https://github.com/mococa/go-array',
     image: '/img/libs/go-array.png',
   },
   {
     title: 'React Guide Hook',
-    description: 'A React hook to build onboarding guides',
+    description:
+      'A React hook to easily build guides, such as for app onboarding.',
     url: 'https://github.com/mococa/react-guide-hook',
     image: '/img/libs/clippy.png',
   },
 
   {
     title: 'Mococa Toastr',
-    description: 'A toast notification library for React',
+    description: 'A toast notification library for React with 3 variations.',
     url: 'https://github.com/mococa/mococa-toastr',
     image: '/img/libs/mococa-toastr.png',
   },
 
   {
     title: 'Go Array',
-    description: 'A generic Golang slice helper library',
+    description:
+      'A generic Golang slice helper library for filtering, pushing, iterating and more.',
     url: 'https://github.com/mococa/go-array',
     image: '/img/libs/go-array.png',
   },
