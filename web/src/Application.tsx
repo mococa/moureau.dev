@@ -19,6 +19,7 @@ import { get_language_from_locale } from '_utils/translations';
 /* ---------- Styles ---------- */
 import '/public/fonts/styles.css';
 import '_styles/global.css';
+import { About } from '_modules/about';
 
 declare function Head(): NullstackNode;
 
@@ -117,6 +118,8 @@ class Application extends Nullstack {
           <Post route="/blog/post/:id" language={language} />
 
           <CMS route="/cms" language={language} />
+
+          <About route="/about" language={language} />
 
           {(page.not_found || page.status === 404) && (
             <NotFound language={language} route="*" />

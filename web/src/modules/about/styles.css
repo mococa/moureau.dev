@@ -1,0 +1,57 @@
+.about-me {
+  display: flex;
+  flex-flow: column;
+  gap: 48px;
+}
+
+.about-me section {
+  display: flex;
+  flex-flow: column;
+  gap: 24px;
+}
+
+.about-me section:not(:first-of-type) {
+  margin-top: 32px;
+}
+
+.about-me section .games {
+  display: flex;
+  flex-flow: column;
+  gap: 32px;
+}
+
+.about-me section .games > img {
+  border-radius: 12px;
+
+  width: 100%;
+  height: 403px;
+  max-width: 100%;
+
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.about-me section .games > div > img {
+  width: 592px;
+  height: 582px;
+
+  border-radius: 12px;
+
+  object-fit: cover;
+
+  --shadow-size: 16px;
+  filter: drop-shadow(
+    calc(var(--shadow-size) * 1) calc(var(--shadow-size)) 0px var(--accent)
+  );
+}
+
+.about-me section .games .games-column {
+  display: flex;
+  flex-flow: column;
+
+  max-width: 522px;
+}
+
+.about-me section .games .games-column img {
+  border-radius: 12px;
+}

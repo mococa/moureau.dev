@@ -10,8 +10,9 @@
   opacity: 0.075;
 
   font-size: 24rem;
+  user-select: none;
 
-  z-index: 0;
+  z-index: -1;
 }
 
 .not-found-content {
