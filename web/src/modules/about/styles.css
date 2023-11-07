@@ -4,6 +4,10 @@
   gap: 48px;
 }
 
+.about-me.content {
+  margin-bottom: 180px;
+}
+
 .about-me section {
   display: flex;
   flex-flow: column;
@@ -12,6 +16,10 @@
 
 .about-me section:not(:first-of-type) {
   margin-top: 32px;
+}
+
+.about-me section#about-me {
+  padding-top: 0;
 }
 
 .about-me section .games {
@@ -31,9 +39,100 @@
   object-position: center 42%;
 }
 
-.about-me section .games > div > img {
+.about-me section#about-me .profile-card {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.about-me section#about-me .profile-card img {
+  aspect-ratio: 1;
+  width: 180px;
+
+  object-fit: cover;
+  object-position: 0 -60px;
+
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+}
+
+.about-me section#about-me .side-image {
+  border-radius: 12px;
+
+  --shadow-size: 24px;
+
+  filter: drop-shadow(
+    calc(var(--shadow-size) * -1) var(--shadow-size) 0px var(--accent)
+  );
+
+  margin-left: 32px;
+
+  height: 830px;
+  max-width: 490px;
+  width: 100%;
+
+  object-fit: cover;
+}
+
+.about-me section .section-content > .column {
+  gap: 24px;
+}
+
+.about-me section#about-me .section-content .column {
+  max-width: 580px;
+}
+
+.about-me section#about-me .section-content .column > img {
+  border-radius: 6px;
+
+  object-fit: cover;
+  object-position: center;
+
+  height: 384px;
+  width: 100%;
+
+  margin-bottom: 8px;
+}
+
+.about-me section#games .section-content .column {
+  display: flex;
+  flex-flow: column;
+
+  max-width: 522px;
+}
+
+.about-me section#games .section-content .column img {
+  border-radius: 12px;
+}
+
+.about-me section#music .side-image {
+  border-radius: 12px;
+
+  --shadow-size: 24px;
+  filter: drop-shadow(
+    calc(var(--shadow-size) * -1) var(--shadow-size) 0px var(--accent)
+  );
+
+  object-fit: cover;
+
+  filter: drop-shadow(
+    calc(var(--shadow-size) * 1) calc(var(--shadow-size)) 0px var(--accent)
+  );
+
+  margin-left: 0;
+
+  height: 660px;
+  width: 100%;
+  max-width: 592px;
+}
+
+.about-me section#music .section-content .column {
+  max-width: 522px;
+}
+
+.about-me section#games .side-image {
   width: 592px;
-  height: 582px;
+  height: 590px;
 
   border-radius: 12px;
 
@@ -45,13 +144,74 @@
   );
 }
 
-.about-me section .games .games-column {
-  display: flex;
-  flex-flow: column;
+.about-me section#languages .side-image {
+  --shadow-size: 24px;
 
-  max-width: 522px;
+  border-radius: 12px;
+
+  filter: drop-shadow(
+    calc(var(--shadow-size) * -1) var(--shadow-size) 0px var(--accent)
+  );
+
+  margin-left: 32px;
+
+  object-fit: cover;
+
+  width: 100%;
+  height: 300px;
+  max-width: 510px;
 }
 
-.about-me section .games .games-column img {
-  border-radius: 12px;
+.about-me section#languages .section-content > .column {
+  max-width: 590px;
+}
+
+@media (width < 820px) {
+  .about-me .side-image {
+    display: none;
+  }
+
+  .about-me section#music .section-content .column,
+  .about-me section#about-me .section-content .column,
+  .about-me section#games .section-content .column,
+  .about-me section#languages .section-content .column {
+    max-width: 100%;
+  }
+
+  .about-me section#games .games > img {
+    height: 180px;
+  }
+
+  .about-me section#languages .section-content {
+    flex-flow: column;
+    gap: 32px;
+  }
+
+  .about-me section#languages .section-content .side-image {
+    display: block;
+
+    filter: none;
+
+    margin: 0;
+
+    max-width: 100%;
+  }
+}
+
+@media (width < 480px) {
+  .about-me section#about-me .profile-card img {
+    width: 120px;
+  }
+
+  .about-me section#about-me .profile-card {
+    gap: 24px;
+  }
+
+  .about-me section#about-me .section-content .column > img {
+    height: 250px;
+  }
+
+  .about-me section {
+    gap: 8px;
+  }
 }
