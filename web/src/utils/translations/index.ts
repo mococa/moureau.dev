@@ -387,4 +387,209 @@ export const translations = {
       },
     },
   },
+  about_me: {
+    title: {
+      pt: 'Sobre mim',
+      en: 'About me',
+      fr: 'À propos de moi',
+      es: 'Sobre mí',
+    },
+    description: {
+      en: "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.",
+      pt: 'Sou Luiz, um desenvolvedor web do Brasil. Aqui você pode ler sobre mim, minhas paixões, trabalho e mais.\nSinta-se livre para contatar-me a qualquer momento.',
+      fr: "Je suis Luiz, un développeur web du Brésil.  ici vous pouvez lire sur moi, mes passions, mon travail et plus.\nSois libre pour m'envoyer un message.",
+      es: 'Soy Luiz, un desarrollador web de Brasil. Aquí puedes leer sobre mí, mis pasiones, trabajo y más.\n¡Sinta-te libre para contactarme!',
+    },
+    sections: {
+      resume: {
+        section_title: {
+          en: 'In short...',
+          pt: 'Em resumo...',
+          fr: 'En court...',
+          es: 'En corto...',
+        },
+        profile: {
+          resume_title: {
+            en: "I'm Luiz Felipe, a web developer from Brazil.",
+            pt: 'Sou Luiz, um desenvolvedor web do Brasil.',
+            fr: 'Je suis Luiz, un développeur web du Brésil.',
+            es: 'Soy Luiz, un desarrollador web de Brasil.',
+          },
+          resume_subtitle: {
+            en: 'I love to code and create beautiful and responsive websites. I am currently working as a fullstack developer. Feel free to contact me anytime.',
+            pt: 'Gosto de criar websites incríveis e responsivos. Atualmente atuo como desenvolvedor fullstack. Sinta-se livre para contatar-me a qualquer momento.',
+            fr: "J'adore coder et créer des sites incroyables et responsives. Je suis actuellement développeur fullstack. Sois libre pour m'envoyer un message.",
+            es: 'Me gusta crear sitios increibles y resposivos. Actuo actualmente desarrollador fullstack. ¡Sinta-te libre para contactarme!',
+          },
+        },
+        hobbies_and_passions: {
+          en: "My hobbies and passions are speedcubing and music (I'm very eclectic and open to share my Spotify playlists).",
+          pt: 'Meus hobbies e paixões são speedcubing e música (sou muito eclético e aberto para compartilhar minhas playlists do Spotify).',
+          es: 'Mis pasiones y hobbies son speedcubing y música (soy muy ecléctico y abierto para compartir mis playlists de Spotify).',
+          fr: 'Mes hobbies et passions sont speedcubing et musique (je suis très éclectique et ouvert à partager mes playlists Spotify).',
+        },
+        culture: {
+          en: "I'm from Rio de Janeiro, so going to the beach, wearing flip-flops, partying and enjoying life is more than just culture, it runs in my blood.",
+          pt: 'Sou do Rio de Janeiro, então ir à praia, festas, usar chinelo e aproveitar a vida é mais que a cultura, é algo que corre no meu sangue.',
+          es: 'Soy de Rio de Janeiro, entonces irme a la playa, festas, usar chanclas y aprovechar la vida es más que la cultura, es algo que corre en mi sangre.',
+          fr: 'Je viens de Rio de Janeiro, donc aller à la plage, faire des fêtes, porter des tongs et profiter de la vie est plus que de la culture, ça court dans mon sang.',
+        },
+        studies: {
+          en: "I'm currently studying Medical Physics at the Federal University of Rio de Janeiro - UFRJ, but I'm pausing it for a while to focus on my career.",
+          pt: 'Atualmente estou cursando a Medicina Física na UFRJ, mas estou pausando momentaneamente para focar na minha carreira.',
+          es: 'Actualmente estoy estudio la Física Médica en la Universidad Federal de Rio de Janeiro - UFRJ, pero estoy pausando por un momento para concentrar en mi carrera.',
+          fr: "Je fais mes études en Physique Médicale à l'Université Federal de Rio de Janeiro - UFRJ, mais je me suis arrêté pour un moment pour me concentrer à ma carrière.",
+        },
+      },
+      music: {
+        section_title: {
+          en: 'Music',
+          pt: 'Música',
+          fr: 'Musique',
+          es: 'Música',
+        },
+        title: {
+          en: 'Have I already said that I love music?',
+          pt: 'Já falei que amo música?',
+          fr: "J'ai déjà dit que j'aime la musique?",
+          es: 'Ya dice que me gusta mucho la música?',
+        },
+        subtitle: {
+          en: [
+            "I'm most of my time listening to music from hardcore metal to classic, from Bossa Nova to Samba, from Electronic to Pop.",
+            'I think that at this point, I simply cannot work without music.',
+          ],
+          pt: [
+            'Na maior parte do tempo estou ouvindo música do metal à clássica, da Bossa Nova ao Samba, da Electrônica ao Pop.',
+            'Acho que nesse ponto, eu já simplesmente não consigo trabalhar sem música',
+          ],
+          es: [
+            'En la mayor parte del tiempo estoy escuchando música del metal a clásica, de Bossa Nova a Samba, de Electrónica a Pop.',
+            'Penso que en este punto, simplemente no puedo trabajar sin música',
+          ],
+          fr: [
+            "La plupart du temps je suis en train d'écouter de la musique du métal à la classique, de la Bossa Nova à la Samba, de l'Electrotonique à la Pop.",
+            "Je pense qu'à ce point là, je ne peux tout simplement plus travailler sans musique",
+          ],
+        },
+        types: {
+          en: [
+            "I have a type of music to listen to every mood that I'm in.",
+            'Stressed? Metal',
+            'Very stressed? Hardcore metal',
+            'Focused? Classic',
+            'Happy? Samba',
+            'And so on...',
+          ],
+          pt: [
+            'Tenho um tipo de música para escutar para cada humor que estou',
+            'Estressado? Metal',
+            'Muito estressado? Metal ainda mais pesado',
+            'Focado? Clássica',
+            'Feliz? Samba',
+            'E assim por diante...',
+          ],
+          es: [
+            'Tengo un tipo de música para escuchar para cada humor que estoy',
+            'Estresado? Metal',
+            'Muito estresado? Metal muy pesado',
+            'Focado? Clásica',
+            'Feliz? Samba',
+            'Y así por diante...',
+          ],
+          fr: [
+            "J'ai un type de musique pour écouter pour chaque humour que je suis",
+            'Stressé? Métal',
+            'Très stressé? Métal encore plus lourd',
+            'Concentré? Classique',
+            'Heureux? Samba',
+            'Et patati, patata...',
+          ],
+        },
+        instruments: {
+          en: [
+            "I'm so into music that I have always been super interested in musical instruments. I had my piano phase, my electric guitar phase, my acoustic one phase.",
+            'I had even an synthesizer phase',
+          ],
+          pt: [
+            'Gosto muito e sempre fui muito interessado por instrumentos musicais. Já tive minha fase de piano, fase de guitarra, de violão...',
+            'Já tive até minha fase de sintentizadores',
+          ],
+          es: [
+            'Me gusta mucho y siempre fue muy interessado por instrumentos musicales. Ya tuve mi fase de piano, fase de guitarra electrica, acústica...',
+            'Ya tuvo hasta mi fase de sintentizadores',
+          ],
+          fr: [
+            "J'ai toujours été super intéressé par les instruments musicaux. J'ai eu ma phase de piano, de la guitarre électrique, de la guitarre acoustique...",
+            "J'ai même eu ma phase de synthétiseurs",
+          ],
+        },
+      },
+      games: {
+        section_title: {
+          en: 'Games',
+          pt: 'Jogos',
+          fr: 'Jeux-vidéos',
+          es: 'Juegos',
+        },
+        title: 'Videogames live in my heart',
+        subtitle: {
+          en: "I've always been a massive gamer. When my cousins had consoles, I was always with them playing on their Playstations and Xboxes.",
+          pt: 'Sempre fui um gamer nato. Quando meus primos tinham consoles, eu sempre estava na casa deles jogando Playstation e Xbox.',
+          es: 'Siempre fue un gamer nato. Cuando mis primos tenian consolas, yo sempre estaba con ellos jugando Play y Xbox.',
+          fr: "J'ai toujours été un gamer. Quand mes cousins avaient des consoles, j'étais toujours avec eux en jouant sur la Playstation et Xbox.",
+        },
+        impact: {
+          en: "Games had a great impact in my life and I'm proud of it. It taught me English and the way I think in general. That's why it needs a special section in my website.",
+          pt: 'Os jogos tiveram um impacto imenso na minha vida e tenho orgulho disso. Me ensinaram inglês e o jeito que penso em geral. É por isso que merece uma seção especial no meu site.',
+          es: 'Los juegos tuvieron un impacto muy grande en mi vida y tengo orgullo de eso. Me enseñaron inglés y la forma que penso en general. Por eso, merece una sección especial en mi site.',
+          fr: "Les jeux ont eu un grand impact dans ma vie et j'en suis fier. Cela m'a appris l'anglais et ma façon de penser en général. C'est pourquoi il faut une section spéciale sur mon site.",
+        },
+        today: {
+          en: 'Currently the games I play the most are any one that pops in on Xbox Live Game Pass and League of Legends with my friends.',
+          pt: 'Atualmente os jogos que eu mais jogo são qualquer um que aparece no Game Pass do Xbox e também League of Legends com meus amigos.',
+          es: 'Actualmente los juegos que juego son cualquier uno que aparece en Xbox Live Game Pass y League of Legends con mis amigos.',
+          fr: 'Actuellement les jeux que je joue sont ceux qui apparaîent sur Xbox Live Game Pass et League of Legends avec mes amis.',
+        },
+      },
+      languages: {
+        section_title: {
+          en: 'Languages',
+          pt: 'Idiomas',
+          fr: 'Langues',
+          es: 'Idiomas',
+        },
+        title: {
+          en: 'I really enjoy learning new languages',
+          pt: 'Gosto muito de aprender novos idiomas',
+          fr: "J'aime apprendre de nouvelles langues",
+          es: 'Me encanta aprender de nuevo idiomas',
+        },
+        polyglot: {
+          en: 'I consider myself a polyglot as I can fluently speak English, French, Spanish and my mother tongue, Portuguese.',
+          pt: 'Eu me considero um poliglota já que posso falar inglês, francês, espanhol e minha lingua materna, português.',
+          es: 'Considerome un poliglota ya que puedo hablar inglés, francés, español y mi lengua materna, portugués.',
+          fr: "Je me considère un polyglote puisque je parle l'anglais, français, espagnol et de ma langue maternelle, le portugais.",
+        },
+        linguistics: {
+          en: "I'm also a huge fan of the languages and linguistics of the world. I like to learn how languages are formed, etymologies and curiosities.",
+          pt: 'Também sou um grande fã de idiomas do mundo e linguística. Gosto de aprender como os linguas são formadas, etimologias e curiosidades.',
+          es: 'También soy un gran fan de idiomas y linguística del mundo. Me gusta aprender cómo forman las linguas, etimologias y curiosidades.',
+          fr: "Je suis aussi un grand fan des langues et linguistiques du monde. J'adore apprendre comment les langues sont formées, étymologies et curiosités.",
+        },
+        friends: {
+          en: "I've got friends from all over the world as I'm very social and easily make friends online all the time.",
+          pt: 'Tenho amigos de todos os lugares do mundo e eu sou super social e faço facilmente amigos online toda hora.',
+          es: 'Tengo amigos de todos los lugares del mundo y yo soy super social y hago facilmente amigos online toda la hora.',
+          fr: "J'ai des amis partout le monde et je suis super social, je fais facillement des amis en-ligne tout le temps.",
+        },
+        learning: {
+          en: "I'm currently learning German, Dutch and Brazilian Sign Language.",
+          pt: 'Atualmente estou aprendendo alemão, holandês e LIBRAS.',
+          es: 'Actualmente estoy aprendiendo alemán, holandés y la Lingua de Sinales Brasileña.',
+          fr: "J'apprends actuallemment l'allemand, le néerlandais et la Langue de Signes Brésilienne.",
+        },
+      },
+    },
+  },
 } as const;
