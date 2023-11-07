@@ -12,6 +12,7 @@ import { CMS } from '_modules/cms';
 import { Home } from '_modules/home';
 import { NotFound } from '_modules/404';
 import { Post } from '_modules/post';
+import { About } from '_modules/about';
 
 /* ---------- Translations ---------- */
 import { get_language_from_locale } from '_utils/translations';
@@ -117,6 +118,8 @@ class Application extends Nullstack {
           <Post route="/blog/post/:id" language={language} />
 
           <CMS route="/cms" language={language} />
+
+          <About route="/about" language={language} />
 
           {(page.not_found || page.status === 404) && (
             <NotFound language={language} route="*" />
