@@ -65,6 +65,10 @@
 }
 
 .navbar-links > li > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   transition: 250ms ease-in-out;
 }
 
@@ -72,5 +76,11 @@
   .logo h3,
   .navbar-links > li:first-of-type {
     display: none;
+  }
+
+  .navbar-links > li {
+    padding-left: 24px;
+
+    font-size: 1.125rem;
   }
 }
