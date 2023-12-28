@@ -1,5 +1,5 @@
 /* ---------- External ---------- */
-import { differenceInCalendarYears } from 'date-fns';
+import { differenceInYears } from 'date-fns';
 
 /* ---------- Types ---------- */
 import { Language } from '_@types';
@@ -22,10 +22,7 @@ interface Props {
 }
 
 /* ---------- Constants ---------- */
-const experience_years = differenceInCalendarYears(
-  new Date(),
-  new Date('2021-01-01'),
-);
+const experience_years = differenceInYears(new Date(), new Date('2019-07-01'));
 
 export const AboutMeSection = ({ apps, repos, language }: Props) => {
   const {
