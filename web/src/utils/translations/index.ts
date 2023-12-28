@@ -31,13 +31,13 @@ export const translations = {
       es: 'Soy Luiz, un Desarrollador',
     },
     subtitle: {
-      en: "Developer, Rubik's cube enthusiast, and music lover.",
+      en: "Developer, designer, Rubik's cube enthusiast, and music lover.",
       pt: 'Desenvolvedor, entusiasta de cubo mágico e amante da música.',
       fr: "Développeur, passionné de Rubik's cube et amoureux de la musique.",
       es: 'Desarrollador, entusiasta del cubo de rubik y amante de la música.',
     },
     learner: {
-      en: 'Always a learner',
+      en: 'Always learning',
       pt: 'Sempre aprendendo',
       fr: 'Toujours en apprentissage',
       es: 'Siempre aprendiendo',
@@ -397,7 +397,7 @@ export const translations = {
     description: {
       en: "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.",
       pt: 'Sou Luiz, um desenvolvedor web do Brasil. Aqui você pode ler sobre mim, minhas paixões, trabalho e mais.\nSinta-se livre para contatar-me a qualquer momento.',
-      fr: "Je suis Luiz, un développeur web du Brésil.  ici vous pouvez lire sur moi, mes passions, mon travail et plus.\nSois libre pour m'envoyer un message.",
+      fr: "Je suis Luiz, un développeur web du Brésil.  ici vous pouvez lire sur moi, mes passions, mon travail et plus.\nN'hésite pas à m'envoyer un message.",
       es: 'Soy Luiz, un desarrollador web de Brasil. Aquí puedes leer sobre mí, mis pasiones, trabajo y más.\n¡Sinta-te libre para contactarme!',
     },
     sections: {
@@ -406,7 +406,7 @@ export const translations = {
           en: 'In short...',
           pt: 'Em resumo...',
           fr: 'En court...',
-          es: 'En corto...',
+          es: 'En resumen...',
         },
         profile: {
           resume_title: {
@@ -417,16 +417,16 @@ export const translations = {
           },
           resume_subtitle: {
             en: 'I love to code and create beautiful and responsive websites. I am currently working as a fullstack developer. Feel free to contact me anytime.',
-            pt: 'Gosto de criar websites incríveis e responsivos. Atualmente atuo como desenvolvedor fullstack. Sinta-se livre para contatar-me a qualquer momento.',
-            fr: "J'adore coder et créer des sites incroyables et responsives. Je suis actuellement développeur fullstack. Sois libre pour m'envoyer un message.",
-            es: 'Me gusta crear sitios increibles y resposivos. Actuo actualmente desarrollador fullstack. ¡Sinta-te libre para contactarme!',
+            pt: 'Gosto de criar belos websites e aplicativos e responsivos. Atualmente atuo como desenvolvedor fullstack. Sinta-se livre para contatar-me a qualquer momento.',
+            fr: "J'adore coder et créer des beaux sites et applications et responsives. Je suis actuellement développeur fullstack. N'hésite pas à m'envoyer un message.",
+            es: 'Me gusta crear bellos sitios y resposivos. Hoy actuo como desarrollador fullstack. ¡Sinta-te libre para contactarme!',
           },
         },
         hobbies_and_passions: {
-          en: "My hobbies and passions are speedcubing and music (I'm very eclectic and open to share my Spotify playlists).",
-          pt: 'Meus hobbies e paixões são speedcubing e música (sou muito eclético e aberto para compartilhar minhas playlists do Spotify).',
-          es: 'Mis pasiones y hobbies son speedcubing y música (soy muy ecléctico y abierto para compartir mis playlists de Spotify).',
-          fr: 'Mes hobbies et passions sont speedcubing et musique (je suis très éclectique et ouvert à partager mes playlists Spotify).',
+          en: "My hobbies and passions are speedcubing and music (I'm very eclectic and open to share my Spotify playlists!).",
+          pt: 'Meus hobbies e paixões são speedcubing e música (sou muito eclético e aberto para compartilhar minhas playlists do Spotify!).',
+          es: 'Mis pasiones y hobbies son el speedcubing y música (soy muy ecléctico y abierto para compartir mis playlists de Spotify!).',
+          fr: 'Mes hobbies et passions sont le speedcubing et la musique (je suis très éclectique et ouvert à partager mes playlists Spotify !).',
         },
         culture: {
           en: "I'm from Rio de Janeiro, so going to the beach, wearing flip-flops, partying and enjoying life is more than just culture, it runs in my blood.",
@@ -438,7 +438,7 @@ export const translations = {
           en: "I'm currently studying Medical Physics at the Federal University of Rio de Janeiro - UFRJ, but I'm pausing it for a while to focus on my career.",
           pt: 'Atualmente estou cursando a Medicina Física na UFRJ, mas estou pausando momentaneamente para focar na minha carreira.',
           es: 'Actualmente estoy estudio la Física Médica en la Universidad Federal de Rio de Janeiro - UFRJ, pero estoy pausando por un momento para concentrar en mi carrera.',
-          fr: "Je fais mes études en Physique Médicale à l'Université Federal de Rio de Janeiro - UFRJ, mais je me suis arrêté pour un moment pour me concentrer à ma carrière.",
+          fr: "Je fais mes études en Physique Médicale à l'Université Federale de Rio de Janeiro - UFRJ, mais je me suis arrêté pour un moment pour me concentrer à ma carrière.",
         },
       },
       music: {
@@ -492,10 +492,10 @@ export const translations = {
           es: [
             'Tengo un tipo de música para escuchar para cada humor que estoy',
             'Estresado? Metal',
-            'Muito estresado? Metal muy pesado',
+            'Muy estresado? Metal muy pesado',
             'Focado? Clásica',
             'Feliz? Samba',
-            'Y así por diante...',
+            'Etcétera...',
           ],
           fr: [
             "J'ai un type de musique pour écouter pour chaque humour que je suis",
@@ -542,13 +542,13 @@ export const translations = {
         impact: {
           en: "Games had a great impact in my life and I'm proud of it. It taught me English and the way I think in general. That's why it needs a special section in my website.",
           pt: 'Os jogos tiveram um impacto imenso na minha vida e tenho orgulho disso. Me ensinaram inglês e o jeito que penso em geral. É por isso que merece uma seção especial no meu site.',
-          es: 'Los juegos tuvieron un impacto muy grande en mi vida y tengo orgullo de eso. Me enseñaron inglés y la forma que penso en general. Por eso, merece una sección especial en mi site.',
+          es: 'Los juegos tuvieron un impacto muy grande en mi vida y eso me llena de orgullo. Me enseñaron inglés y la forma que penso en general. Por eso, merece una sección especial en mi site.',
           fr: "Les jeux ont eu un grand impact dans ma vie et j'en suis fier. Cela m'a appris l'anglais et ma façon de penser en général. C'est pourquoi il faut une section spéciale sur mon site.",
         },
         today: {
           en: 'Currently the games I play the most are any one that pops in on Xbox Live Game Pass and League of Legends with my friends.',
           pt: 'Atualmente os jogos que eu mais jogo são qualquer um que aparece no Game Pass do Xbox e também League of Legends com meus amigos.',
-          es: 'Actualmente los juegos que juego son cualquier uno que aparece en Xbox Live Game Pass y League of Legends con mis amigos.',
+          es: 'Los juegos que juego actualmente aparecen en Xbos Live Game Pass. Además, juego también a League of Legends con mis amigos.',
           fr: 'Actuellement les jeux que je joue sont ceux qui apparaîent sur Xbox Live Game Pass et League of Legends avec mes amis.',
         },
       },
@@ -563,30 +563,30 @@ export const translations = {
           en: 'I really enjoy learning new languages',
           pt: 'Gosto muito de aprender novos idiomas',
           fr: "J'aime apprendre de nouvelles langues",
-          es: 'Me encanta aprender de nuevo idiomas',
+          es: 'Me encanta aprender nuevos idiomas',
         },
         polyglot: {
           en: 'I consider myself a polyglot as I can fluently speak English, French, Spanish and my mother tongue, Portuguese.',
           pt: 'Eu me considero um poliglota já que posso falar inglês, francês, espanhol e minha lingua materna, português.',
-          es: 'Considerome un poliglota ya que puedo hablar inglés, francés, español y mi lengua materna, portugués.',
+          es: 'Me considero un poliglota, ya que puedo hablar inglés, francés, español y mi lengua materna, portugués.',
           fr: "Je me considère un polyglote puisque je parle l'anglais, français, espagnol et de ma langue maternelle, le portugais.",
         },
         linguistics: {
           en: "I'm also a huge fan of the languages and linguistics of the world. I like to learn how languages are formed, etymologies and curiosities.",
           pt: 'Também sou um grande fã de idiomas do mundo e linguística. Gosto de aprender como os linguas são formadas, etimologias e curiosidades.',
-          es: 'También soy un gran fan de idiomas y linguística del mundo. Me gusta aprender cómo forman las linguas, etimologias y curiosidades.',
+          es: 'También soy un gran fan de los idiomas y la lingüística. Me gusta aprender cómo son las lenguas, las etimologías y las curiosidades lingüísticas.',
           fr: "Je suis aussi un grand fan des langues et linguistiques du monde. J'adore apprendre comment les langues sont formées, étymologies et curiosités.",
         },
         friends: {
           en: "I've got friends from all over the world as I'm very social and easily make friends online all the time.",
           pt: 'Tenho amigos de todos os lugares do mundo e eu sou super social e faço facilmente amigos online toda hora.',
-          es: 'Tengo amigos de todos los lugares del mundo y yo soy super social y hago facilmente amigos online toda la hora.',
+          es: 'Tengo amigos de todos los lugares del mundo, soy super social y hago facilmente amigos online todas horas.',
           fr: "J'ai des amis partout le monde et je suis super social, je fais facillement des amis en-ligne tout le temps.",
         },
         learning: {
           en: "I'm currently learning German, Dutch and Brazilian Sign Language.",
           pt: 'Atualmente estou aprendendo alemão, holandês e LIBRAS.',
-          es: 'Actualmente estoy aprendiendo alemán, holandés y la Lingua de Sinales Brasileña.',
+          es: 'Actualmente estoy aprendiendo alemán, holandés y la Lengua de Signos brasileña.',
           fr: "J'apprends actuallemment l'allemand, le néerlandais et la Langue de Signes Brésilienne.",
         },
       },
