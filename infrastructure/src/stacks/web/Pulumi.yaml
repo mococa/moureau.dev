@@ -1,0 +1,4 @@
+name: web
+runtime: nodejs
+description: API pulumi program
+main: ./index.ts
