@@ -1,0 +1,7 @@
+config:
+  aws:region: sa-east-1
+  web:api_endpoint:
+    secure: AAABANN9XxW9KWjU+NSzKoC1NX3tiLKlqW4iBo6FEAMNVyPCAcdMvDFySAouTF1vdJciKh6vtJYCEUFX6+kHWvnnxIO2Y/XK1R5/AI1Jj8Y=
+  web:certificate_arn:
+    secure: AAABADpEq2HBk7buyrJ1rViERvDpME8k/XeSafxAAk5+WYlRKzAcZtPrZAu5ntZcVqEYre9rMuNLrLxhqEl517cU7AD/dBJRCob5voV5RC453H4eiCIUgR7yLxvo6UJj29qVOViX0QfWxP6MDTRnLM3N5A==
+  web:environment: production
