@@ -5,6 +5,7 @@ import Nullstack from 'nullstack';
 import { Github } from '_common/assets/SVG/Github';
 import { Twitter } from '_common/assets/SVG/Twitter';
 import { Linkedin } from '_common/assets/SVG/Linkedin';
+import { Dribbble } from '_common/assets/SVG/Dribbble';
 
 /* ---------- Styles ---------- */
 import './styles.css';
@@ -62,6 +63,14 @@ export class SocialLinks extends Nullstack {
           aria-label="Visit my Linkedin profile"
         >
           <Linkedin />
+        </a>
+
+        <a
+          href="https://dribbble.com/mococa/"
+          target="_blank"
+          aria-label="Visit my Dribbble profile"
+        >
+          <Dribbble />
         </a>
       </div>
     );

@@ -22,10 +22,6 @@ export class HyperMd extends Nullstack<Props> {
 
   /* ---------- Handlers ---------- */
   async handleSetupMarkdown({ onChange, defaultValue, getEditor }: Props) {
-    require('codemirror/mode/htmlmixed/htmlmixed');
-    require('codemirror/mode/markdown/markdown');
-    require('codemirror/addon/display/placeholder');
-
     const { fromTextArea } = await import('hypermd');
 
     const editor = fromTextArea(this.editor_ref, {

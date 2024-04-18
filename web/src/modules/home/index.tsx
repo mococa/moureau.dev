@@ -22,6 +22,7 @@ import { Language } from '_@types';
 
 /* ---------- Styles ---------- */
 import './styles.css';
+import { translations } from '_utils/translations';
 
 /* ---------- Interfaces ---------- */
 interface Props {
@@ -30,10 +31,11 @@ interface Props {
 
 export class Home extends Nullstack<Props> {
   /* ---------- Life cycle ---------- */
-  initiate({ page }: NullstackClientContext<Props>) {
-    page.title = 'Moureau - Fullstack Developer';
-    page.description =
-      "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.";
+  initiate({ page, language }: NullstackClientContext<Props>) {
+    const { title, description } = translations.meta.home;
+
+    page.title = title[language];
+    page.description = description[language];
   }
 
   render({ language }: NullstackClientContext) {

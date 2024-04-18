@@ -24,10 +24,10 @@ interface Props {
 
 export class Blog extends Nullstack<Props> {
   /* ---------- Life cycle ---------- */
-  initiate({ page }: NullstackClientContext<Props>) {
-    page.title = 'Moureau - Blog';
-    page.description =
-      "Welcome to my blog. Here I'll share my knowledge about web development and other stuff I'm interested in.\nYou can find articles and tutorials in English, Portuguese, French and Spanish here.";
+  initiate({ page, language }: NullstackClientContext<Props>) {
+    const { title, description } = translations.meta.blog;
+    page.title = title[language];
+    page.description = description[language];
   }
 
   /* ---------- Renderers ---------- */

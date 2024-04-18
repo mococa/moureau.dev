@@ -100,14 +100,15 @@ export class CMS extends Nullstack<Props> {
   }
 
   /* ---------- Life cycle ---------- */
-  initiate({ settings }: NullstackClientContext) {
+  initiate({ settings, page, language }: NullstackClientContext) {
+    const { title, description } = translations.meta.cms;
+    page.title = title;
+    page.description = description[language];
+
     this.articles = settings.blog_posts || [];
   }
 
-  prepare({ page, language, settings }: NullstackClientContext<Props>) {
-    page.title = 'Moureau.dev - CMS';
-    page.description = 'Moureau.dev Content Management System page';
-
+  prepare({ language, settings }: NullstackClientContext<Props>) {
     this.language = language;
     this.articles = settings.blog_posts || [];
   }
@@ -374,6 +375,27 @@ export class CMS extends Nullstack<Props> {
         </div>
 
         <Footer />
+
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/htmlmixed/htmlmixed.min.js"
+          integrity="sha512-HN6cn6mIWeFJFwRN9yetDAMSh+AK9myHF1X9GlSlKmThaat65342Yw8wL7ITuaJnPioG0SYG09gy0qd5+s777w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/markdown/markdown.min.js"
+          integrity="sha512-DmMao0nRIbyDjbaHc8fNd3kxGsZj9PCU6Iu/CeidLQT9Py8nYVA5n0PqXYmvqNdU+lCiTHOM/4E7bM/G8BttJg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/display/placeholder.min.js"
+          integrity="sha512-acBo6sW2h2GZQ9BqU9v5RyYGPUEr1a9jrukJg825Y0ahxAg/7aqTNPtcalloqnf4DfsRVdcdNmcBNWPD8b8W8Q=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
       </main>
     );
   }

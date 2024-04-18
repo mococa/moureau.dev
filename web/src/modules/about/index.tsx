@@ -32,9 +32,9 @@ const break_mapper = <T,>(c: T, i: number, arr: T[]) => (
 export class About extends Nullstack<Props> {
   /* ---------- Life cycle ---------- */
   initiate({ page, language }: NullstackClientContext<Props>) {
-    const { title, description } = translations.about_me;
+    const { title, description } = translations.meta.about_me;
 
-    page.title = `Moureau - ${title[language]}`;
+    page.title = title[language];
     page.description = description[language];
   }
 
