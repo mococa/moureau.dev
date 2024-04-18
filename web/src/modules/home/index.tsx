@@ -20,9 +20,11 @@ import { skills } from '_utils/constants/skills';
 /* ---------- Types ---------- */
 import { Language } from '_@types';
 
+/* ---------- Translations ---------- */
+import { translations } from '_utils/translations';
+
 /* ---------- Styles ---------- */
 import './styles.css';
-import { translations } from '_utils/translations';
 
 /* ---------- Interfaces ---------- */
 interface Props {

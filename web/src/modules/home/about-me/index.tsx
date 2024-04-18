@@ -96,12 +96,12 @@ export const AboutMeSection = ({ apps, repos, language }: Props) => {
         <div class="column mt-xl">
           <h3 class="uppercase">{currently_working_on[language]}</h3>
 
-          <a href="https://www.westpoint.io/" target="_blank" class="mt-md">
+          <a href="https://space.game/" target="_blank" class="mt-md">
             <img
-              width="150"
-              height="40"
-              src="/img/companies/westpoint.io.png"
-              alt="Westpoint"
+              width="160"
+              height="84"
+              src="/img/companies/space.game.png"
+              alt="Space Game"
               aria-label="Current company"
             />
           </a>
