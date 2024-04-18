@@ -6,6 +6,7 @@ import { Language } from '_@types';
 
 /* ---------- Assets ---------- */
 import { Logo } from '_common/assets/SVG/Logo';
+import { Download } from '_common/assets/SVG/Download';
 
 /* ---------- Components ---------- */
 import { LanguageSelector } from '_common/components/LanguageSelector';
@@ -22,7 +23,11 @@ interface Props {
 }
 export class Navbar extends Nullstack<Props> {
   /* ---------- Render ---------- */
-  render({ language, router }: NullstackClientContext<Props>) {
+  render({ language, router, settings }: NullstackClientContext<Props>) {
+    const public_bucket = `https://${settings.publicBucket}`;
+    const cv_language = language === 'es' ? 'en' : language;
+    const cv_link = `${public_bucket}/public/CV/Luiz+Felipe+Moureau-${cv_language.toUpperCase()}.pdf`;
+
     const { links } = translations.navbar;
 
     return (
@@ -54,6 +59,13 @@ export class Navbar extends Nullstack<Props> {
               aria-selected={router.path.startsWith('/blog') ? 'true' : 'false'}
             >
               <a href="/blog">Blog</a>
+            </li>
+
+            <li role="tab" aria-selected="false">
+              <a target="_blank" href={cv_link} download>
+                CV
+                <Download />
+              </a>
             </li>
 
             <li role="tab">
