@@ -14,7 +14,7 @@ export class Footer extends Nullstack {
         <div class="column content gap-sm">
           <h2>Luiz Felipe Moureau</h2>
 
-          <span class="mb-md">Fullstack developer at Westpoint</span>
+          <span class="mb-md">Fullstack developer at Space.game</span>
 
           <SocialLinks />
         </div>
