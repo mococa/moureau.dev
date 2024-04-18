@@ -45,14 +45,20 @@ export class WebDistribution extends ComponentResource {
       environment,
     });
 
-    this.app = new PulumiNullstack("moureau-web", {
-      environment,
-      domain: domains.web[environment],
-      env: {
-        NULLSTACK_SECRETS_API_ENDPOINT: api_endpoint,
+    this.app = new PulumiNullstack(
+      "moureau-web",
+      {
+        environment,
+        domain: domains.web[environment],
+        env: {
+          NULLSTACK_SECRETS_API_ENDPOINT: api_endpoint,
+          NULLSTACK_SETTINGS_PUBLIC_BUCKET:
+            this.s3.bucket.bucketRegionalDomainName,
+        },
+        nullstack_app_path: app_dir,
       },
-      nullstack_app_path: app_dir,
-    });
+      { dependsOn: [this.s3.bucket] }
+    );
 
     this.sls = new ServerlessApp(
       "moureau-web-sls",

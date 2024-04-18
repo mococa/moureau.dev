@@ -1,4 +1,4 @@
-name: web
+name: moureau-web
 runtime: nodejs
 description: API pulumi program
 main: ./index.ts

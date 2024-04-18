@@ -16,7 +16,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "nullstack": "~0.19.1",
+    "nullstack": "0.20.3",
     "prettier": "^2.8.8",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.0.4"

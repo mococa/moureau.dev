@@ -6,6 +6,7 @@ import { Language } from '_@types';
 
 /* ---------- Assets ---------- */
 import { Logo } from '_common/assets/SVG/Logo';
+import { Download } from '_common/assets/SVG/Download';
 
 /* ---------- Components ---------- */
 import { LanguageSelector } from '_common/components/LanguageSelector';
@@ -15,7 +16,6 @@ import { translations } from '_utils/translations';
 
 /* ---------- Styles ---------- */
 import './styles.css';
-import { Download } from '_common/assets/SVG/Download';
 
 /* ---------- Interfaces ---------- */
 interface Props {
@@ -23,8 +23,8 @@ interface Props {
 }
 export class Navbar extends Nullstack<Props> {
   /* ---------- Render ---------- */
-  render({ language, router }: NullstackClientContext<Props>) {
-    const public_bucket = 'https://moureau.s3.sa-east-1.amazonaws.com';
+  render({ language, router, settings }: NullstackClientContext<Props>) {
+    const public_bucket = `https://${settings.publicBucket}`;
     const cv_language = language === 'es' ? 'en' : language;
     const cv_link = `${public_bucket}/public/CV/Luiz+Felipe+Moureau-${cv_language.toUpperCase()}.pdf`;
 
