@@ -7,6 +7,73 @@ export const get_language_from_locale = (locale?: string): Language => {
 };
 
 export const translations = {
+  meta: {
+    home: {
+      title: {
+        en: 'Moureau.dev ─ Fullstack developer',
+        pt: 'Moureau.dev ─ Desenvolvedor fullstack',
+        fr: 'Moureau.dev ─ Développeur fullstack',
+        es: 'Moureau.dev ─ Desarrollador fullstack',
+      },
+      description: {
+        en: "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.",
+        pt: 'Sou Luiz Felipe Moureau e esse é meu site pessoal. Aqui você pode ler sobre mim, minhas paixões, trabalhos e mais.\nSinta-se livre para me contatar a qualquer momento.',
+        fr: "Je suis Luiz Felipe Moureau et c'est mon site personnel. Ici, vous pouvez lire sur moi, mes passions, mes travail, etc.\nN'hesitez pas de me contacter à tout moment.",
+        es: 'Soy Luiz Felipe Moureau y este es mi sitio personal. Aquí puedes leer sobre mí, mis pasiones, mis trabajos y más.\nSinta-te libre para contactarme.',
+      },
+    },
+    about_me: {
+      title: {
+        pt: 'Moureau.dev ─ Sobre mim',
+        en: 'Moureau.dev ─ About me',
+        fr: 'Moureau.dev ─ À propos de moi',
+        es: 'Moureau.dev ─ Sobre mí',
+      },
+      description: {
+        en: "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.",
+        pt: 'Sou Luiz, um desenvolvedor web do Brasil. Aqui você pode ler sobre mim, minhas paixões, trabalho e mais.\nSinta-se livre para contatar-me a qualquer momento.',
+        fr: "Je suis Luiz, un développeur web du Brésil.  ici vous pouvez lire sur moi, mes passions, mon travail et plus.\nSois libre pour m'envoyer un message.",
+        es: 'Soy Luiz, un desarrollador web de Brasil. Aquí puedes leer sobre mí, mis pasiones, trabajo y más.\n¡Sinta-te libre para contactarme!',
+      },
+    },
+    blog: {
+      title: {
+        pt: 'Moureau.dev ─ Blog',
+        en: 'Moureau.dev ─ Blog',
+        fr: 'Moureau.dev ─ Blog',
+        es: 'Moureau.dev ─ Blog',
+      },
+      description: {
+        en: "Welcome to my blog. Here I'll share my knowledge about web development and other stuff I'm interested in.\nYou can find articles and tutorials in English, Portuguese, French and Spanish here.",
+        pt: 'Boas vindas ao meu blog. Aqui eu compartilho conhecimento sobre desenvolvimento web e outras coisas que me interessam.\nVocê encontrará artigos e tutoriais em português, inglês, francês e espanhol.',
+        es: 'Bienvenido(a) a mi blog. Aquí comparto conocimento sobre desarollo web y otras cosas que me interesan.\nArtigos en español, portugués, inglés y francés.',
+        fr: "Bienvenue à mon blog. Ici je partage ma connaissance du développement web et d'autres choses qui m'intéressent.\nVous allez trouver des articles en français, portugais, anglais et espagnol.",
+      },
+    },
+    cms: {
+      title: 'Moureau.dev ─ CMS',
+      description: {
+        en: 'Content Management System page',
+        pt: 'Sistema de gerenciamento de conteúdo',
+        es: 'Sistema de gerenciamento de conteudo',
+        fr: 'CMS',
+      },
+    },
+    404: {
+      title: {
+        en: 'Page not found',
+        pt: 'Página não encontrada',
+        fr: 'Page non trouvée',
+        es: 'Página no encontrada',
+      },
+      description: {
+        en: 'The page you were looking for could not be found. It has either moved or deleted.\nPlease check the URL or try navigating to the homepage.',
+        pt: 'A página que você está procurando não pode ser encontrada. Ela pode ter sido excluída ou nunca criada. Por favor, cheque a URL ou tente navegar de volta ao Início',
+        es: 'No se puede encontrar la página que estás buscando. Es posible que haya sido eliminado o que nunca se haya creado.\nPor favor verifique la URL o intente regresar a Inicio',
+        fr: "La page que vous recherchez est introuvable. Il a peut-être été supprimé ou n'a jamais été créé.\nVeuillez vérifier l'URL ou essayer de revenir à l'accueil.",
+      },
+    },
+  },
   navbar: {
     links: {
       home: {
@@ -32,9 +99,9 @@ export const translations = {
     },
     subtitle: {
       en: "Developer, designer, Rubik's cube enthusiast, and music lover.",
-      pt: 'Desenvolvedor, entusiasta de cubo mágico e amante da música.',
-      fr: "Développeur, passionné de Rubik's cube et amoureux de la musique.",
-      es: 'Desarrollador, entusiasta del cubo de rubik y amante de la música.',
+      pt: 'Desenvolvedor, designer, entusiasta de cubo mágico e amante da música.',
+      fr: "Développeur, designer, passionné de Rubik's cube et amoureux de la musique.",
+      es: 'Desarrollador, designer, entusiasta del cubo de rubik y amante de la música.',
     },
     learner: {
       en: 'Always learning',
@@ -132,10 +199,10 @@ export const translations = {
       es: ['Repositorios', 'GitHub'],
     },
     apps_in_production: {
-      en: ['Applications', 'in production'],
-      pt: ['Aplicações', 'em produção'],
-      fr: ['Applications', 'en production'],
-      es: ['Aplicaciones', 'en producción'],
+      en: ['Apps ', 'in production'],
+      pt: ['Apps ', 'em produção'],
+      fr: ['Applis ', 'en production'],
+      es: ['Apps ', 'en producción'],
     },
     contributions: {
       en: "Through these years I've contributed to over %APPS_IN_PRODUCTION% applications in production, and I have over %PUBLIC_REPOSITORIES% public repositories on Github.",
@@ -393,12 +460,6 @@ export const translations = {
       en: 'About me',
       fr: 'À propos de moi',
       es: 'Sobre mí',
-    },
-    description: {
-      en: "I'm Luiz Felipe Moureau and this is my personal website. Here you can read about me, my passions, work and more.\nFeel free to contact me anytime.",
-      pt: 'Sou Luiz, um desenvolvedor web do Brasil. Aqui você pode ler sobre mim, minhas paixões, trabalho e mais.\nSinta-se livre para contatar-me a qualquer momento.',
-      fr: "Je suis Luiz, un développeur web du Brésil.  ici vous pouvez lire sur moi, mes passions, mon travail et plus.\nN'hésite pas à m'envoyer un message.",
-      es: 'Soy Luiz, un desarrollador web de Brasil. Aquí puedes leer sobre mí, mis pasiones, trabajo y más.\n¡Sinta-te libre para contactarme!',
     },
     sections: {
       resume: {

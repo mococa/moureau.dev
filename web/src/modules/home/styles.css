@@ -33,5 +33,7 @@ main > section > div.content h2 {
 }
 
 main > section > div.content h3 {
+  display: table-caption;
+
   font-size: var(--section-subtitle-fs);
 }

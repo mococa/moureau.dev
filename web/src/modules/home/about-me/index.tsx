@@ -77,7 +77,7 @@ export const AboutMeSection = ({ apps, repos, language }: Props) => {
 
                 <h3>
                   {apps_in_production[language][0]}
-                  <br />
+
                   {apps_in_production[language][1]}
                 </h3>
               </div>

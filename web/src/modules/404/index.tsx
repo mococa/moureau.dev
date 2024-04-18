@@ -21,11 +21,10 @@ interface Props {
 
 export class NotFound extends Nullstack<Props> {
   initiate({ page, language }: NullstackClientContext<Props>) {
-    page.title =
-      (translations.not_found.title[language] || '404') + ' - Moureau';
+    const { title, description } = translations.meta[404];
 
-    page.description =
-      'The requested page could not be found. Please check the URL or try navigating to the homepage.';
+    page.title = title[language];
+    page.description = description[language];
   }
 
   render({ language }: NullstackClientContext<Props>) {

@@ -181,4 +181,8 @@ hr {
     --hero-title-fs: 2.65rem;
     --section-title-fs: 2.5rem;
   }
+
+  html[lang="pt-BR"]:root {
+    --section-title-fs: 2.375rem;
+  }
 }

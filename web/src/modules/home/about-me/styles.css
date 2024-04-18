@@ -31,11 +31,11 @@ html[lang='pt-BR'] .about > .column > h2 {
   margin-bottom: 24px;
 }
 
-#about-me img {
+main > section#about-me img {
   transition: 0.2s;
 }
 
-#about-me img:hover {
+main > section#about-me img:hover {
   filter: brightness(1.5);
 }
 
