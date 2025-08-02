@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const SectionTitle = ({ title, href }: Props) => (
-  <a class="section-title" href={href}>
+  <a class="section-title w-fit" href={href}>
     <span>/</span>
 
     <b>{title}</b>

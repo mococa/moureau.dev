@@ -9,6 +9,18 @@ function custom_client(...args) {
 
   config.resolve.plugins = [...(config.resolve?.plugins || []), ...plugins];
 
+  const rule = config.module.rules.find((rule) => rule.test && rule.test.test('.css'));
+  rule.use.push({
+    loader: 'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins: {
+          tailwindcss: {},
+        }
+      },
+    },
+  });
+
   return config;
 }
 

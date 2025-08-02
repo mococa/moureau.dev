@@ -26,6 +26,8 @@
 
 .social-links-row a svg:hover {
   margin-top: -4px;
+
+  color: white
 }
 
 .social-links-row.hovered a svg:not(:hover) {

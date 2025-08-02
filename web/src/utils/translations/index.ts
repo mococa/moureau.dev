@@ -91,15 +91,21 @@ export const translations = {
     },
   },
   hero: {
+    introduction: {
+      en: "I'm Luiz, and I ❤️",
+      pt: "Me chamo Luiz e eu ❤️",
+      fr: "C'est Luiz et j'❤️",
+      es: "Me llamo Luiz y me gusta",
+    },
     title: {
-      en: "I'm Luiz, a Web Developer",
-      pt: 'Sou Luiz, um Desenvolvedor',
-      fr: "C'est Luiz, un Développeur",
-      es: 'Soy Luiz, un Desarrollador',
+      en: ["Building", "remarkable & interactive", "apps 🪄"],
+      pt: ['Criar tudo que é', 'marcante', '🪄'],
+      fr: ["Créer des trucs", "remarquables ", '🪄'],
+      es: ['Crear super apps', 'interativas', '🪄'],
     },
     subtitle: {
       en: "Developer, designer, Rubik's cube enthusiast, and music lover.",
-      pt: 'Desenvolvedor, designer, entusiasta de cubo mágico e amante da música.',
+      pt: 'Desenvolvedor, designer, entusiasta de cubo mágico e apaixonado pela música.',
       fr: "Développeur, designer, passionné de Rubik's cube et amoureux de la musique.",
       es: 'Desarrollador, designer, entusiasta del cubo de rubik y amante de la música.',
     },
@@ -112,10 +118,10 @@ export const translations = {
     sections: {
       about: {
         title: {
-          en: 'About me',
-          pt: 'Sobre mim',
-          fr: 'À propos de moi',
-          es: 'Sobre mí',
+          en: 'ℹ️ About me',
+          pt: 'ℹ️ Sobre mim',
+          fr: 'ℹ️ À propos de moi',
+          es: 'ℹ️ Sobre mí',
         },
         text: {
           en: 'A %AGE% years old brazilian developer passionate about technology, design, puzzles and languages. Very into music and international experiences in general',
@@ -132,10 +138,10 @@ export const translations = {
       },
       work: {
         title: {
-          en: 'My work',
-          pt: 'Meu trabalho',
-          fr: 'Mon travail',
-          es: 'Mi trabajo',
+          en: '💼 My work',
+          pt: '💼 Meu trabalho',
+          fr: '💼 Mon travail',
+          es: '💼 Mi trabajo',
         },
         text: {
           en: 'I like to get stuff done and done right, paying attention to details, accessibility and always looking for new challenges and learning new tech',
@@ -338,19 +344,19 @@ export const translations = {
         es: 'E-mail',
       },
       description: {
-        en: 'Describe your project',
-        pt: 'Descreva seu projeto',
-        fr: 'Décris votre projet',
-        es: 'Descreva tu proyecto',
+        en: 'What do you have in mind?',
+        pt: 'O que você tem em mente?',
+        fr: "Qu'est-ce que vous avez en tête ?",
+        es: 'Que tienes en mente?',
       },
     },
   },
   latest_articles: {
     title: {
-      en: 'Check out my latest articles and tutorials',
-      pt: 'Dá uma olhada nos meus últimos posts e tutoriais',
-      fr: "Jette un coup d'œil sur mes derniers articles et tutoriels",
-      es: 'Mira mis Últimos artículos e tutoriais',
+      en: 'Check out my latest articles',
+      pt: 'Dá uma olhada nos meus últimos posts',
+      fr: "Jette un coup d'œil sur mes derniers articles",
+      es: 'Mira mis Últimos artículos',
     },
     button: {
       en: 'Browse all articles',
@@ -510,10 +516,10 @@ export const translations = {
           es: 'Música',
         },
         title: {
-          en: 'Have I already said that I love music?',
-          pt: 'Já falei que amo música?',
-          fr: "J'ai déjà dit que j'aime la musique?",
-          es: 'Ya dice que me gusta mucho la música?',
+          en: '🎹 Have I already said that I love music?',
+          pt: '🎹 Já falei que amo música?',
+          fr: "🎹 J'ai déjà dit que j'aime la musique?",
+          es: '🎹 Ya dice que me gusta mucho la música?',
         },
         subtitle: {
           en: [

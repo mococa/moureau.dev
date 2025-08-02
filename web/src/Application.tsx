@@ -9,10 +9,10 @@ import cookie from 'cookie';
 /* ---------- Modules ---------- */
 import { Blog } from '_modules/blog';
 import { CMS } from '_modules/cms';
-import { Home } from '_modules/home';
+import { Home } from '_modules/new-home';
 import { NotFound } from '_modules/404';
 import { Post } from '_modules/post';
-import { About } from '_modules/about';
+import { About } from '_modules/new-about';
 
 /* ---------- Translations ---------- */
 import { get_language_from_locale } from '_utils/translations';
@@ -20,6 +20,7 @@ import { get_language_from_locale } from '_utils/translations';
 /* ---------- Styles ---------- */
 import '/public/fonts/styles.css';
 import '_styles/global.css';
+import '../tailwind.css'
 
 declare function Head(): NullstackNode;
 
